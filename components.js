@@ -300,13 +300,17 @@ function renderToast() {
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Inject header and footer first
   renderHeader();
   renderFooter();
   renderCookieBanner();
   renderEmergencyBtn();
   renderToast();
 
-  // MOBILE MENU TOGGLE (correct execution order)
+  // ============================================================
+  // MOBILE MENU TOGGLE — CORRECT INITIALIZATION ORDER
+  // ============================================================
+
   const menuBtn = document.getElementById("menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
   const iconOpen = document.getElementById("menu-icon-open");
