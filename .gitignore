@@ -1,0 +1,21 @@
+.DS_Store
+.env
+*.log
+
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Node / front
+node_modules/
+dist/
+build/
+.next/
+out/
+
+# Data / artifacts
+*.db
+*.sqlite
+mlruns/
+models/
