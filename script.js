@@ -1,71 +1,18 @@
 // ============================================================
-// HEADER - scroll effect & mobile menu
-// ============================================================
-const header = document.getElementById('main-header');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuBtn = document.getElementById('menu-btn');
-const menuIconOpen = document.getElementById('menu-icon-open');
-const menuIconClose = document.getElementById('menu-icon-close');
-
-// Scroll effect
-window.addEventListener('scroll', () => {
-  if (header) {
-    if (window.scrollY > 20) {
-      header.classList.add('header-scrolled');
-      header.classList.remove('header-top');
-    } else {
-      header.classList.remove('header-scrolled');
-      header.classList.add('header-top');
-    }
-  }
-});
-
-// Mobile menu toggle
-if (menuBtn) {
-  menuBtn.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    if (menuIconOpen) menuIconOpen.style.display = isOpen ? 'none' : 'block';
-    if (menuIconClose) menuIconClose.style.display = isOpen ? 'block' : 'none';
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  });
-}
-
-// Close menu on nav link click
-document.querySelectorAll('.mobile-nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    if (mobileMenu) mobileMenu.classList.remove('open');
-    if (menuIconOpen) menuIconOpen.style.display = 'block';
-    if (menuIconClose) menuIconClose.style.display = 'none';
-    document.body.style.overflow = '';
-  });
-});
-
-// Mark active nav link
-const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
-document.querySelectorAll('[data-nav-path]').forEach(link => {
-  const path = link.getAttribute('data-nav-path');
-  const isActive = (path === '/' && (currentPath === '/' || currentPath === '/index.html'))
-    || (path !== '/' && currentPath.endsWith(path));
-  if (isActive) link.classList.add('active');
-});
-
-// ============================================================
 // COOKIE BANNER
+// (affichage géré dans components.js après renderCookieBanner)
 // ============================================================
-const cookieBanner = document.getElementById('cookie-banner');
 const cookieKey = 'bp2c_cookie_consent';
-
-if (cookieBanner && !localStorage.getItem(cookieKey)) {
-  setTimeout(() => cookieBanner.classList.add('visible'), 800);
-}
 
 function acceptCookies() {
   localStorage.setItem(cookieKey, 'accepted');
-  if (cookieBanner) cookieBanner.classList.remove('visible');
+  const banner = document.getElementById('cookie-banner');
+  if (banner) banner.classList.remove('visible');
 }
 function rejectCookies() {
   localStorage.setItem(cookieKey, 'rejected');
-  if (cookieBanner) cookieBanner.classList.remove('visible');
+  const banner = document.getElementById('cookie-banner');
+  if (banner) banner.classList.remove('visible');
 }
 
 // ============================================================

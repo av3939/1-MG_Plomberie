@@ -102,7 +102,7 @@ function renderHeader() {
             box-shadow:0 10px 30px rgba(15,23,42,0.25);
           ">
           <span id="menu-icon-open" style="display:flex">${ICONS.menu}</span>
-          <span id="menu-icon-close" style="display:none;display:flex">${ICONS.x}</span>
+          <span id="menu-icon-close" style="display:none">${ICONS.x}</span>
         </button>
       </div>
     </div>
@@ -321,52 +321,79 @@ document.addEventListener('DOMContentLoaded', () => {
   renderToast();
 
   // ============================================================
-  // MOBILE MENU TOGGLE (PLACER ICI — APRÈS renderHeader())
+  // SCROLL EFFECT
   // ============================================================
+  const header = document.getElementById('main-header');
+  window.addEventListener('scroll', () => {
+    if (!header) return;
+    if (window.scrollY > 20) {
+      header.classList.add('header-scrolled');
+      header.classList.remove('header-top');
+    } else {
+      header.classList.remove('header-scrolled');
+      header.classList.add('header-top');
+    }
+  }, { passive: true });
 
-  const menuBtn = document.getElementById("menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const iconOpen = document.getElementById("menu-icon-open");
-  const iconClose = document.getElementById("menu-icon-close");
+  // ============================================================
+  // ACTIVE NAV LINK
+  // ============================================================
+  const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+  document.querySelectorAll('[data-nav-path]').forEach(link => {
+    const path = link.getAttribute('data-nav-path');
+    const isActive = (path === '/' && (currentPath === '/' || currentPath === '/index.html'))
+      || (path !== '/' && currentPath.endsWith(path));
+    if (isActive) link.classList.add('active');
+  });
 
-  if (menuBtn && mobileMenu) {
-
-    // Toggle menu on button click
-    menuBtn.addEventListener("click", function () {
-
-      mobileMenu.classList.toggle("open");
-
-      const isOpen = mobileMenu.classList.contains("open");
-
-      // Switch hamburger / close icon
-      if (iconOpen && iconClose) {
-        iconOpen.style.display = isOpen ? "none" : "block";
-        iconClose.style.display = isOpen ? "block" : "none";
-      }
-
-      // Lock page scroll when menu open
-      document.body.classList.toggle("no-scroll", isOpen);
-
-    });
-
-    // Close menu when clicking any link inside mobile menu
-    mobileMenu.addEventListener("click", function (e) {
-
-      const link = e.target.closest("a");
-
-      if (!link) return;
-
-      mobileMenu.classList.remove("open");
-
-      if (iconOpen && iconClose) {
-        iconOpen.style.display = "block";
-        iconClose.style.display = "none";
-      }
-
-      document.body.classList.remove("no-scroll");
-
-    });
-
+  // ============================================================
+  // COOKIE BANNER
+  // ============================================================
+  const cookieBanner = document.getElementById('cookie-banner');
+  if (cookieBanner && !localStorage.getItem('bp2c_cookie_consent')) {
+    setTimeout(() => cookieBanner.classList.add('visible'), 800);
   }
+
+  // ============================================================
+  // MOBILE MENU — contrôleur unique (après renderHeader)
+  // ============================================================
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  if (!menuBtn || !mobileMenu) return;
+
+  // Sauvegarde de la position de scroll (nécessaire pour iOS Safari position:fixed)
+  let savedScrollY = 0;
+
+  function openMenu() {
+    savedScrollY = window.scrollY;
+    document.body.style.top = `-${savedScrollY}px`;
+    document.body.classList.add('no-scroll');
+    mobileMenu.classList.add('open');
+    if (iconOpen) iconOpen.style.display = 'none';
+    if (iconClose) iconClose.style.display = 'flex';
+    menuBtn.setAttribute('aria-label', 'Fermer le menu');
+  }
+
+  function closeMenu() {
+    document.body.classList.remove('no-scroll');
+    document.body.style.top = '';
+    window.scrollTo(0, savedScrollY);
+    mobileMenu.classList.remove('open');
+    if (iconOpen) iconOpen.style.display = 'flex';
+    if (iconClose) iconClose.style.display = 'none';
+    menuBtn.setAttribute('aria-label', 'Ouvrir le menu');
+  }
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  // Fermeture automatique sur clic d'un lien du menu
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target.closest('a')) closeMenu();
+  });
 
 });
