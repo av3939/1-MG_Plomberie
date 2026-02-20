@@ -164,3 +164,24 @@ document.querySelectorAll('.reveal').forEach(el => {
   el.classList.add('hidden-reveal');
   revealObserver.observe(el);
 });
+
+// Mobile menu toggle
+document.addEventListener("DOMContentLoaded", function () {
+
+  const menuBtn = document.getElementById("mobile-menu-button");
+  const closeBtn = document.getElementById("mobile-menu-close");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener("click", function () {
+      mobileMenu.classList.add("open");
+    });
+  }
+
+  if (closeBtn && mobileMenu) {
+    closeBtn.addEventListener("click", function () {
+      mobileMenu.classList.remove("open");
+    });
+  }
+
+});
