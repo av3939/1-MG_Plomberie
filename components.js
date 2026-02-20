@@ -47,7 +47,7 @@ function renderHeader() {
   const mobileNavHTML = navLinks.map(link =>
     `<a href="${link.file}" data-nav-path="${link.path}" class="mobile-nav-link">
       <span>${link.label}</span>
-      <span style="color:#94a3b8">${ICONS.chevronRight}</span>
+      <span class="mobile-nav-chevron">${ICONS.chevronRight}</span>
     </a>`
   ).join('');
 
@@ -89,13 +89,19 @@ function renderHeader() {
 
   <!-- Mobile Menu — drawer positionné sous le header via JS -->
   <div id="mobile-menu">
-    <nav style="padding:8px 12px;flex-grow:1">
-      ${mobileNavHTML}
-    </nav>
-    <div style="padding:12px 16px 16px;background:#f8fafc;border-top:1px solid #f1f5f9">
-      <a href="tel:+33601761395" class="menu-call-btn">
-        ${ICONS.phone} Appeler maintenant
-      </a>
+    <div class="mobile-menu-panel">
+      <div class="mobile-menu-title">MENU PRINCIPAL</div>
+
+      <nav class="mobile-menu-links">
+        ${mobileNavHTML}
+      </nav>
+
+      <div class="mobile-menu-footer">
+        <a href="tel:+33601761395" class="menu-call-btn">
+          ${ICONS.phone} Appeler maintenant
+        </a>
+        <div class="mobile-menu-sub">Disponible 7j/7 pour vos urgences</div>
+      </div>
     </div>
   </div>
 </header>`;
