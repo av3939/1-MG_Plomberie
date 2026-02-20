@@ -62,7 +62,7 @@ function renderHeader() {
   ).join('');
 
   const headerHTML = `
-<header id="main-header" class="header-top" style="position:fixed;top:0;left:0;right:0;z-index:40;transition:all 0.5s">
+<header id="main-header" class="header-top" style="position:fixed;top:0;left:0;right:0;z-index:70;transition:all 0.5s">
   <div class="container" style="padding:0 24px">
     <div style="display:flex;align-items:center;justify-content:space-between">
       <!-- Logo -->
@@ -328,27 +328,42 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.getElementById("mobile-menu");
   const iconOpen = document.getElementById("menu-icon-open");
   const iconClose = document.getElementById("menu-icon-close");
-  const header = document.getElementById("main-header");
 
   if (menuBtn && mobileMenu) {
 
+    // Toggle menu on button click
     menuBtn.addEventListener("click", function () {
 
       mobileMenu.classList.toggle("open");
 
       const isOpen = mobileMenu.classList.contains("open");
 
-      document.body.classList.toggle("no-scroll", isOpen);
-
+      // Switch hamburger / close icon
       if (iconOpen && iconClose) {
         iconOpen.style.display = isOpen ? "none" : "block";
         iconClose.style.display = isOpen ? "block" : "none";
       }
 
-      // Cache le header quand menu ouvert
-      if (header) {
-        header.style.display = isOpen ? "none" : "block";
+      // Lock page scroll when menu open
+      document.body.classList.toggle("no-scroll", isOpen);
+
+    });
+
+    // Close menu when clicking any link inside mobile menu
+    mobileMenu.addEventListener("click", function (e) {
+
+      const link = e.target.closest("a");
+
+      if (!link) return;
+
+      mobileMenu.classList.remove("open");
+
+      if (iconOpen && iconClose) {
+        iconOpen.style.display = "block";
+        iconClose.style.display = "none";
       }
+
+      document.body.classList.remove("no-scroll");
 
     });
 
