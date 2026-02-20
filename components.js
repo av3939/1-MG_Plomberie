@@ -85,8 +85,21 @@ function renderHeader() {
           <span>06 01 76 13 95</span>
         </a>
         <!-- Hamburger -->
-        <button id="menu-btn" class="show-mobile-only" aria-label="Menu"
-          style="background:#f1f5f9;border:none;border-radius:50%;padding:8px;cursor:pointer;position:relative;z-index:50;line-height:0;color:#0f172a">
+        <button id="menu-btn" class="show-mobile-only"
+          style="
+            width:48px;
+            height:48px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:#0f172a;
+            color:white;
+            border:none;
+            border-radius:12px;
+            cursor:pointer;
+            position:relative;
+            z-index:60;
+          ">
           <span id="menu-icon-open">${ICONS.menu}</span>
           <span id="menu-icon-close" style="display:none">${ICONS.x}</span>
         </button>
@@ -300,7 +313,6 @@ function renderToast() {
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Inject header and footer first
   renderHeader();
   renderFooter();
   renderCookieBanner();
@@ -308,13 +320,14 @@ document.addEventListener('DOMContentLoaded', () => {
   renderToast();
 
   // ============================================================
-  // MOBILE MENU TOGGLE — CORRECT INITIALIZATION ORDER
+  // MOBILE MENU TOGGLE (PLACER ICI — APRÈS renderHeader())
   // ============================================================
 
   const menuBtn = document.getElementById("menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
   const iconOpen = document.getElementById("menu-icon-open");
   const iconClose = document.getElementById("menu-icon-close");
+  const header = document.getElementById("main-header");
 
   if (menuBtn && mobileMenu) {
 
@@ -327,6 +340,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (iconOpen && iconClose) {
         iconOpen.style.display = isOpen ? "none" : "block";
         iconClose.style.display = isOpen ? "block" : "none";
+      }
+
+      // Cache le header quand menu ouvert
+      if (header) {
+        header.style.display = isOpen ? "none" : "block";
       }
 
     });
