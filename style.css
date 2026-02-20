@@ -237,3 +237,12 @@ body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #11182
     padding-bottom: 60px;
   }
 }
+
+@media (max-width: 768px) {
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+}

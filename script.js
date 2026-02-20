@@ -168,20 +168,26 @@ document.querySelectorAll('.reveal').forEach(el => {
 // Mobile menu toggle
 document.addEventListener("DOMContentLoaded", function () {
 
-  const menuBtn = document.getElementById("mobile-menu-button");
-  const closeBtn = document.getElementById("mobile-menu-close");
+  const menuBtn = document.getElementById("menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("menu-icon-open");
+  const iconClose = document.getElementById("menu-icon-close");
 
   if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener("click", function () {
-      mobileMenu.classList.add("open");
-    });
-  }
 
-  if (closeBtn && mobileMenu) {
-    closeBtn.addEventListener("click", function () {
-      mobileMenu.classList.remove("open");
+    menuBtn.addEventListener("click", function () {
+
+      mobileMenu.classList.toggle("open");
+
+      const isOpen = mobileMenu.classList.contains("open");
+
+      if (iconOpen && iconClose) {
+        iconOpen.style.display = isOpen ? "none" : "block";
+        iconClose.style.display = isOpen ? "block" : "none";
+      }
+
     });
+
   }
 
 });
