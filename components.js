@@ -90,7 +90,7 @@ function renderHeader() {
   <!-- Mobile Menu — drawer positionné sous le header via JS -->
   <div id="mobile-menu">
     <div class="mobile-menu-panel">
-      <div class="mobile-menu-title">MENU PRINCIPAL</div>
+     
 
       <nav class="mobile-menu-links">
         ${mobileNavHTML}
@@ -330,21 +330,30 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!header || !menuBtn || !mobileMenu) return;
 
   function setMenuState(open) {
-    if (open) {
-      // Positionne le drawer exactement sous le header au moment de l'ouverture
-      mobileMenu.classList.add('open');
-      document.body.classList.add('no-scroll');
-      if (iconOpen)  iconOpen.style.display  = 'none';
-      if (iconClose) iconClose.style.display = 'flex';
-      menuBtn.setAttribute('aria-label', 'Fermer le menu');
-    } else {
-      mobileMenu.classList.remove('open');
-      document.body.classList.remove('no-scroll');
-      if (iconOpen)  iconOpen.style.display  = 'flex';
-      if (iconClose) iconClose.style.display = 'none';
-      menuBtn.setAttribute('aria-label', 'Ouvrir le menu');
-    }
+  if (open) {
+    // Positionne le drawer exactement sous le header au moment de l'ouverture
+    const h = header.offsetHeight || 0;
+    mobileMenu.style.top = h + 'px';
+    mobileMenu.style.height = `calc(100vh - ${h}px)`;
+
+    mobileMenu.classList.add('open');
+    document.body.classList.add('no-scroll');
+
+    if (iconOpen)  iconOpen.style.display  = 'none';
+    if (iconClose) iconClose.style.display = 'block'; // (block plutôt que flex)
+    menuBtn.setAttribute('aria-label', 'Fermer le menu');
+  } else {
+    mobileMenu.classList.remove('open');
+    document.body.classList.remove('no-scroll');
+
+    mobileMenu.style.top = '';
+    mobileMenu.style.height = '';
+
+    if (iconOpen)  iconOpen.style.display  = 'block';
+    if (iconClose) iconClose.style.display = 'none';
+    menuBtn.setAttribute('aria-label', 'Ouvrir le menu');
   }
+}
 
   menuBtn.addEventListener('click', () => {
     setMenuState(!mobileMenu.classList.contains('open'));
@@ -366,10 +375,14 @@ document.addEventListener('DOMContentLoaded', () => {
       header.classList.remove('header-scrolled');
       header.classList.add('header-top');
     }
-    // Recalcule le top du drawer si le menu est ouvert (header qui rétrécit au scroll)
+    // Si le menu est ouvert, recalcule son top (header change de hauteur au scroll)
     if (mobileMenu.classList.contains('open')) {
-      mobileMenu.style.top = header.offsetHeight + 'px';
+      const h = header.offsetHeight || 0;
+      mobileMenu.style.top = h + 'px';
+      mobileMenu.style.height = `calc(100vh - ${h}px)`;
     }
+
+   
   }, { passive: true });
 
 });

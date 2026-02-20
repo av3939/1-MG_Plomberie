@@ -65,22 +65,22 @@ body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #11182
   display: none;
   position: fixed;
 
-  top: 0;
+  /* IMPORTANT: commence sous le header */
+  top: 88px; /* fallback ; ajusté par JS si besoin */
   left: 0;
   right: 0;
   bottom: 0;
 
-  background: #ffffff;
+  /* overlay */
+  background: rgba(2, 6, 23, 0.08);
 
   z-index: 9999;
 
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 
-  padding-top: 80px;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-bottom: 24px;
+  /* on enlève le padding-top qui cassait la perception */
+  padding: 12px;
 
   flex-direction: column;
 }
@@ -115,15 +115,15 @@ body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #11182
   }
 
   .mobile-menu-links {
-    padding: 6px 10px 14px;
+    padding: 4px 8px 8px;
   }
 
   .mobile-nav-link {
-    padding: 18px 16px;
-    border-radius: 16px;
-    font-size: 1.35rem;
-    font-weight: 500;
-    color: #0f172a;
+  padding: 12px 14px;        /* réduit l'espace vertical */
+  border-radius: 14px;
+  font-size: 1.2rem;         /* légèrement plus compact */
+  font-weight: 500;
+  color: #0f172a;
   }
   .mobile-nav-link:hover { background: #f8fafc; }
   .mobile-nav-link:active { background: #f1f5f9; }
@@ -136,15 +136,15 @@ body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #11182
 
   .mobile-menu-footer {
     padding: 14px 16px 18px;
-    background: #f8fafc;
+    background: transparent;
     border-top: 1px solid #f1f5f9;
   }
 
   /* CTA propre (pas un pavé) */
   .menu-call-btn {
-    padding: 14px 16px;
+    padding: 12px 16px;
     border-radius: 14px;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
   }
 
   .mobile-menu-sub {
@@ -179,22 +179,25 @@ body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #11182
   .menu-toggle-btn { display: none !important; }
 }
 
-/* Bouton d'appel dans le menu mobile */
+/* Bouton d'appel dans le menu mobile (même gabarit qu'un item de menu) */
 .menu-call-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: #0f172a;
-  color: white;
-  width: 100%;
-  padding: 12px 20px;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 0.9375rem;
+  justify-content: center;   /* comme un item */
+  gap: 12px;
+  background: #093867;          
+  color: #e8e9ed;
+  width: auto;                      /* IMPORTANT : pas 100% */
+  padding: 18px 16px;               /* aligné avec .mobile-nav-link */
+  border-radius: 16px;
+  font-weight: 500;
+  font-size: 1.35rem;               /* même taille que tes liens */
   text-decoration: none;
-  transition: background 0.2s;
+  border: 1px solid transparent;
 }
+
+.menu-call-btn:hover { background: #f8fafc; }
+.menu-call-btn:active { background: #f1f5f9; }
 .menu-call-btn:hover { background: #1e293b; }
 
 /* Blocage du scroll body quand menu ouvert */
@@ -377,6 +380,22 @@ body.no-scroll { overflow: hidden; }
   .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 32px !important;
+  }
+
+}
+
+/* =========================================
+   MOBILE — réduire taille icône appel menu
+   ========================================= */
+@media (max-width: 1023px) {
+
+  .menu-call-btn {
+    font-size: 1.15rem;
+  }
+
+  .menu-call-btn svg {
+    width: 26px;
+    height: 26px;
   }
 
 }
