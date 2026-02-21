@@ -354,16 +354,43 @@ document.addEventListener('DOMContentLoaded', () => {
     menuBtn.setAttribute('aria-label', 'Ouvrir le menu');
   }
 }
+// Recalcule la position et la hauteur du menu
+function recalcMenuLayout() {
+  if (!mobileMenu.classList.contains('open')) return;
 
+  const h = header.offsetHeight || 0;
+
+  mobileMenu.style.top = h + 'px';
+  mobileMenu.style.height = `calc(100vh - ${h}px)`;
+}
   menuBtn.addEventListener('click', () => {
     setMenuState(!mobileMenu.classList.contains('open'));
   });
-
+  // Fermeture avec la touche Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+      setMenuState(false);
+      menuBtn.focus();
+    }
+  });
   // Fermeture au clic sur un lien du menu
   mobileMenu.addEventListener('click', (e) => {
-    if (e.target.closest('a')) setMenuState(false);
-  });
+    // clic sur un lien => fermer
+    if (e.target.closest('a')) {
+      setMenuState(false);
+      return;
+    }
 
+    // clic sur l'overlay (hors panel) => fermer
+    const panel = e.target.closest('.mobile-menu-panel');
+    if (!panel) setMenuState(false);
+  });
+  // Recalcule la position si la taille de l'écran change
+  window.addEventListener('resize', recalcMenuLayout, { passive: true });
+
+  // Recalcule si le téléphone change d'orientation
+  window.addEventListener('orientationchange', recalcMenuLayout, { passive: true });
+  
   // ============================================================
   // SCROLL EFFECT + ajustement top du drawer
   // ============================================================
