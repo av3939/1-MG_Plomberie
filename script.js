@@ -54,6 +54,7 @@ document.querySelectorAll('.faq-btn').forEach((btn, i) => {
     const isOpen = answer.classList.contains('open');
 
     // Close all
+    document.querySelectorAll('.faq-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
     document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
     document.querySelectorAll('.faq-question').forEach(q => {
       q.classList.remove('text-blue-600');
@@ -68,6 +69,7 @@ document.querySelectorAll('.faq-btn').forEach((btn, i) => {
 
     // Toggle clicked
     if (!isOpen) {
+      btn.setAttribute('aria-expanded', 'true');
       answer.classList.add('open');
       question.classList.add('text-blue-600');
       question.classList.remove('text-slate-900');

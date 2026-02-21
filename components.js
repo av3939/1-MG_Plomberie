@@ -79,7 +79,7 @@ function renderHeader() {
           <span>06 01 76 13 95</span>
         </a>
         <!-- Hamburger -->
-        <button id="menu-btn" class="menu-toggle-btn" aria-label="Ouvrir le menu">
+        <button id="menu-btn" class="menu-toggle-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
           <span id="menu-icon-open">${ICONS.menu}</span>
           <span id="menu-icon-close" style="display:none">${ICONS.x}</span>
         </button>
@@ -88,7 +88,7 @@ function renderHeader() {
   </div>
 
   <!-- Mobile Menu — drawer positionné sous le header via JS -->
-  <div id="mobile-menu">
+  <div id="mobile-menu" role="navigation" aria-label="Menu mobile">
     <div class="mobile-menu-panel">
      
 
@@ -342,6 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (iconOpen)  iconOpen.style.display  = 'none';
     if (iconClose) iconClose.style.display = 'block'; // (block plutôt que flex)
     menuBtn.setAttribute('aria-label', 'Fermer le menu');
+    menuBtn.setAttribute('aria-expanded', 'true');
   } else {
     mobileMenu.classList.remove('open');
     document.body.classList.remove('no-scroll');
@@ -352,6 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (iconOpen)  iconOpen.style.display  = 'block';
     if (iconClose) iconClose.style.display = 'none';
     menuBtn.setAttribute('aria-label', 'Ouvrir le menu');
+    menuBtn.setAttribute('aria-expanded', 'false');
   }
 }
 // Recalcule la position et la hauteur du menu
