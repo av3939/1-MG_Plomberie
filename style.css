@@ -402,3 +402,23 @@ body.no-scroll { overflow: hidden; }
   }
 
 }
+
+/* =========================================
+   HERO MOBILE FIX — uniquement mobile
+========================================= */
+
+@media (max-width: 768px) {
+
+  /* corrige l'espacement avec le header fixed */
+  section[style*="min-height:95vh"] {
+    padding-top: 140px !important;
+    padding-bottom: 60px !important;
+  }
+
+  /* corrige l'alignement vertical */
+  section[style*="min-height:95vh"] > .container {
+    display: flex;
+    align-items: flex-start !important;
+  }
+
+}
