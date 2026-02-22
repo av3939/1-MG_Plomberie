@@ -12,7 +12,7 @@ document.addEventListener('click', function (e) {
 // COOKIE BANNER
 // (affichage géré dans components.js après renderCookieBanner)
 // ============================================================
-const cookieKey = 'bp2c_cookie_consent';
+const cookieKey = window.SITE_CONFIG.storage.cookieKey;
 
 function acceptCookies() {
   try { localStorage.setItem(cookieKey, 'accepted'); } catch (e) {}
@@ -46,9 +46,10 @@ document.querySelectorAll('form[data-contact-form]').forEach(form => {
     const data = Object.fromEntries(new FormData(form));
     data.date = new Date().toISOString();
     try {
-      const contacts = JSON.parse(localStorage.getItem('bp2c_contacts') || '[]');
+      const contactsKey = window.SITE_CONFIG.storage.contactsKey;
+      const contacts = JSON.parse(localStorage.getItem(contactsKey) || '[]');
       contacts.push(data);
-      localStorage.setItem('bp2c_contacts', JSON.stringify(contacts));
+      localStorage.setItem(contactsKey, JSON.stringify(contacts));
     } catch (e) {}
     showToast('Message envoyé !', 'Nous vous contacterons dans les plus brefs délais.');
     form.reset();

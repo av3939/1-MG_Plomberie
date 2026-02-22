@@ -26,6 +26,30 @@ document.querySelectorAll('[data-tel-cta]').forEach(function(a) { a.href = 'tel:
 document.querySelectorAll('[data-email-cta]').forEach(function(a) { a.href = 'mailto:' + C.contact.email; });
 
 // ============================================================
+// TOKEN HYDRATION — textContent des éléments [data-token]
+// Piloté depuis C (window.SITE_CONFIG). Jamais innerHTML.
+// Fail-soft : token inconnu = ignoré silencieusement.
+// ============================================================
+(function hydrateClientTokens() {
+  var a = C.contact.address;
+  var tokens = {
+    'contact.phoneDisplay':        C.contact.phoneDisplay,
+    'contact.email':               C.contact.email,
+    'contact.address.street':      a.street,
+    'contact.address.cityLine':    a.postalCode + '\u00a0' + a.city,
+    'contact.address.full':        a.street + ', ' + a.postalCode + '\u00a0' + a.city,
+    'contact.address.fullCountry': a.street + ', ' + a.postalCode + '\u00a0' + a.city + ', ' + a.countryName,
+    'company.legalName':           C.company.legalName,
+    'company.siret':               C.company.siret,
+    'hours.display':               C.hours.display,
+  };
+  document.querySelectorAll('[data-token]').forEach(function(el) {
+    var key = el.dataset.token;
+    if (tokens[key] !== undefined) el.textContent = tokens[key];
+  });
+})();
+
+// ============================================================
 // ICONS (Inline SVG)
 // ============================================================
 const ICONS = {
@@ -339,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // COOKIE BANNER
   // ============================================================
   const cookieBanner = document.getElementById('cookie-banner');
-  if (cookieBanner && !localStorage.getItem('bp2c_cookie_consent')) {
+  if (cookieBanner && !localStorage.getItem(C.storage.cookieKey)) {
     setTimeout(() => cookieBanner.classList.add('visible'), 800);
   }
 
