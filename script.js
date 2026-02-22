@@ -1,3 +1,13 @@
+// ========================================
+// BEFORE/AFTER — click delegation (iOS Safari safe)
+// ========================================
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest('.ba-toggle');
+  if (!btn) return;
+  var media = btn.closest('.ba-media');
+  if (media) media.classList.toggle('is-before');
+});
+
 // ============================================================
 // COOKIE BANNER
 // (affichage géré dans components.js après renderCookieBanner)

@@ -204,7 +204,7 @@ body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #11182
 .menu-call-btn:hover { background: #1e293b; }
 
 /* Blocage du scroll body quand menu ouvert */
-body.no-scroll { overflow: hidden; }
+body.no-scroll { overflow: hidden; position: fixed; width: 100%; }
 .mobile-nav-link { display: flex; align-items: center; justify-content: space-between; padding: 16px; border-radius: 12px; font-size: 1.125rem; font-weight: 500; transition: all 0.2s; color: #475569; text-decoration: none; border: 1px solid transparent; }
 .mobile-nav-link:hover { background: #f8fafc; }
 .mobile-nav-link.active { background: #eff6ff; border-color: #dbeafe; color: #1d4ed8; }
@@ -421,4 +421,180 @@ body.no-scroll { overflow: hidden; }
     align-items: flex-start !important;
   }
 
+}
+
+/* ================================
+   PORTFOLIO — Before/After click toggle
+   ================================ */
+
+.portfolio-card{
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(15,23,42,0.10);
+}
+
+.ba-media{
+  position:relative;
+  height:240px; /* desktop */
+  background:#0b1220;
+  overflow:hidden;
+  -webkit-transform: translateZ(0);
+}
+
+@media (max-width: 768px){
+  .ba-media{ height:220px; }
+}
+
+.ba-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:opacity .2s ease;
+  pointer-events:none;
+}
+
+/* Default: show AFTER */
+.ba-before{ opacity:0; }
+.ba-after{ opacity:1; }
+
+/* Toggled: show BEFORE */
+.ba-media.is-before .ba-before{ opacity:1; }
+.ba-media.is-before .ba-after{ opacity:0; }
+
+.ba-pill{
+  position:absolute;
+  top:14px;
+  left:14px;
+  padding:6px 12px;
+  border-radius:9999px;
+  font-weight:800;
+  font-size:.72rem;
+  letter-spacing:.12em;
+  color:#fff;
+  z-index:2;
+}
+
+.ba-pill-after{ background:#16a34a; }  /* APRÈS */
+.ba-pill-before{ background:#ea580c; } /* AVANT */
+
+/* Only show the correct pill */
+.ba-pill-before{ display:none; }
+.ba-media.is-before .ba-pill-before{ display:inline-flex; }
+.ba-media.is-before .ba-pill-after{ display:none; }
+
+.ba-toggle{
+  position:absolute;
+  right:14px;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  border-radius:9999px;
+  border:1px solid rgba(148,163,184,.35);
+  background:rgba(255,255,255,.92);
+  box-shadow:0 10px 24px rgba(15,23,42,.12);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:auto;
+  z-index:10;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ba-toggle:active{ transform:translateY(-50%) scale(.98); }
+
+.portfolio-body{
+  padding:18px 18px 20px;
+}
+
+.portfolio-kicker{
+  color:#7c3aed;
+  font-weight:800;
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.portfolio-title{
+  color:#0f172a;
+  font-weight:800;
+  font-size:1.25rem;
+  margin:0 0 8px;
+}
+
+.portfolio-desc{
+  color:#475569;
+  line-height:1.65;
+  margin:0 0 14px;
+}
+
+.portfolio-sep{
+  border:none;
+  border-top:1px solid #eef2f7;
+  margin:14px 0;
+}
+
+.portfolio-subtitle{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#94a3b8;
+  font-weight:900;
+  font-size:.75rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.portfolio-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.portfolio-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  color:#334155;
+  line-height:1.5;
+}
+
+.portfolio-list li::before{
+  content:"✓";
+  color:#22c55e;
+  font-weight:900;
+  margin-top:1px;
+}
+
+/* ===== FIX MOBILE TAP BEFORE/AFTER ===== */
+
+/* empêche les images de bloquer le tap */
+.ba-img{
+  pointer-events: none;
+}
+
+/* empêche les badges de bloquer le tap */
+.ba-pill{
+  pointer-events: none;
+}
+
+/* garantit que le bouton reçoit le tap */
+.ba-toggle{
+  pointer-events: auto;
+  z-index: 10;
+  touch-action: manipulation;
 }

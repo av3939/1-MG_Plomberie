@@ -19,7 +19,7 @@
   <meta property="og:description" content="Rénovation complète de salle de bain à Fréjus. Douche italienne, carrelage, plomberie. Un interlocuteur unique pour votre projet.">
   <meta property="og:url" content="https://www.bp2c.net/renovation.html">
   <meta property="og:image" content="https://images.unsplash.com/photo-1618836003104-ec6d67239040?auto=format&fit=crop&w=1200&q=80">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body style="background:#f8fafc">
 <div id="header-placeholder"></div>
@@ -126,22 +126,135 @@
 <!-- PORTFOLIO -->
 <section style="padding:80px 0;background:#f8fafc;position:relative;overflow:hidden">
   <div style="position:absolute;top:0;right:0;width:500px;height:500px;background:rgba(233,213,255,0.4);border-radius:50%;filter:blur(100px);transform:translate(50%,-50%);pointer-events:none"></div>
+
   <div class="container" style="padding:0 24px;position:relative;z-index:1">
     <div style="text-align:center;max-width:700px;margin:0 auto 56px">
       <span style="color:#9333ea;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;font-size:0.75rem;display:block;margin-bottom:12px">Réalisations</span>
       <h2 style="font-size:clamp(1.75rem,4vw,3rem);font-weight:800;color:#0f172a;margin-bottom:16px">Notre Portfolio de Rénovations</h2>
-      <p style="color:#475569;font-size:1.125rem;line-height:1.7">Découvrez nos dernières réalisations. Des transformations complètes pour des espaces de vie réinventés.</p>
+      <p style="color:#475569;font-size:1.125rem;line-height:1.7">
+        Découvrez nos dernières réalisations. Des transformations complètes pour des espaces de vie réinventés.
+      </p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
-      <div style="border-radius:24px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.1);aspect-ratio:4/3">
-        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=700&q=80" alt="Salle de bain rénovée 1" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-      </div>
-      <div style="border-radius:24px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.1);aspect-ratio:4/3">
-        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=700&q=80" alt="Salle de bain rénovée 2" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-      </div>
-      <div style="border-radius:24px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.1);aspect-ratio:4/3">
-        <img src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=700&q=80" alt="Salle de bain rénovée 3" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-      </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px">
+      <!-- CARD 1 -->
+      <article class="portfolio-card">
+        <div class="ba-media" data-ba>
+          <!-- APRÈS (visible par défaut) -->
+          <img class="ba-img ba-after"
+               src="URL_APRES_1"
+               alt="Après rénovation - Salle de Bain Familiale"
+               loading="lazy" decoding="async">
+
+          <!-- AVANT (caché par défaut) -->
+          <img class="ba-img ba-before"
+               src="URL_AVANT_1"
+               alt="Avant rénovation - Salle de Bain Familiale"
+               loading="lazy" decoding="async">
+
+          <span class="ba-pill ba-pill-after">APRÈS</span>
+          <span class="ba-pill ba-pill-before">AVANT</span>
+
+          <button class="ba-toggle" type="button" aria-label="Basculer avant/après">
+            <span aria-hidden="true">↔</span>
+          </button>
+        </div>
+
+        <div class="portfolio-body">
+          <div class="portfolio-kicker">RÉNOVATION COMPLÈTE</div>
+          <h3 class="portfolio-title">Salle de Bain Familiale</h3>
+          <p class="portfolio-desc">
+            Transformation d'une salle de bain datée en un espace moderne et lumineux pour toute la famille.
+          </p>
+
+          <hr class="portfolio-sep">
+
+          <div class="portfolio-subtitle">DÉTAILS CLÉS</div>
+          <ul class="portfolio-list">
+            <li>Douche à l’italienne</li>
+            <li>Double vasque</li>
+            <li>Carrelage grand format</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- CARD 2 -->
+      <article class="portfolio-card">
+        <div class="ba-media" data-ba>
+          <img class="ba-img ba-after"
+               src="URL_APRES_2"
+               alt="Après rénovation - Suite Parentale"
+               loading="lazy" decoding="async">
+
+          <img class="ba-img ba-before"
+               src="URL_AVANT_2"
+               alt="Avant rénovation - Suite Parentale"
+               loading="lazy" decoding="async">
+
+          <span class="ba-pill ba-pill-after">APRÈS</span>
+          <span class="ba-pill ba-pill-before">AVANT</span>
+
+          <button class="ba-toggle" type="button" aria-label="Basculer avant/après">
+            <span aria-hidden="true">↔</span>
+          </button>
+        </div>
+
+        <div class="portfolio-body">
+          <div class="portfolio-kicker">CRÉATION</div>
+          <h3 class="portfolio-title">Suite Parentale</h3>
+          <p class="portfolio-desc">
+            Création d'une salle d'eau privative attenante à la chambre principale.
+          </p>
+
+          <hr class="portfolio-sep">
+
+          <div class="portfolio-subtitle">DÉTAILS CLÉS</div>
+          <ul class="portfolio-list">
+            <li>Baignoire îlot</li>
+            <li>Robinetterie encastrée</li>
+            <li>Ambiance zen</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- CARD 3 -->
+      <article class="portfolio-card">
+        <div class="ba-media" data-ba>
+          <img class="ba-img ba-after"
+               src="URL_APRES_3"
+               alt="Après rénovation - Salle de Douche Moderne"
+               loading="lazy" decoding="async">
+
+          <img class="ba-img ba-before"
+               src="URL_AVANT_3"
+               alt="Avant rénovation - Salle de Douche Moderne"
+               loading="lazy" decoding="async">
+
+          <span class="ba-pill ba-pill-after">APRÈS</span>
+          <span class="ba-pill ba-pill-before">AVANT</span>
+
+          <button class="ba-toggle" type="button" aria-label="Basculer avant/après">
+            <span aria-hidden="true">↔</span>
+          </button>
+        </div>
+
+        <div class="portfolio-body">
+          <div class="portfolio-kicker">OPTIMISATION</div>
+          <h3 class="portfolio-title">Salle de Douche Moderne</h3>
+          <p class="portfolio-desc">
+            Optimisation de l'espace dans une petite salle de bain urbaine.
+          </p>
+
+          <hr class="portfolio-sep">
+
+          <div class="portfolio-subtitle">DÉTAILS CLÉS</div>
+          <ul class="portfolio-list">
+            <li>Paroi vitrée sur mesure</li>
+            <li>Niche éclairée</li>
+            <li>WC suspendu</li>
+          </ul>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -167,7 +280,7 @@
 <div id="cookie-banner-placeholder"></div>
 <div id="emergency-btn-placeholder"></div>
 <div id="toast-placeholder"></div>
-<script src="components.js?v=2" defer></script>
-<script src="script.js?v=2" defer></script>
+<script src="components.js?v=3" defer></script>
+<script src="script.js?v=3" defer></script>
 </body>
 </html>
