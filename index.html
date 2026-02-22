@@ -7,11 +7,13 @@
   <meta name="description" content="BP2C, votre expert certifié à Fréjus. Urgence plomberie 24/7, installation chauffage, climatisation et rénovation de salle de bain. Devis gratuit.">
   <link rel="canonical" href="https://www.bp2c.net/">
   <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta name="theme-color" content="#0f172a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://horizons-cdn.hostinger.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1676210134188-4c05dd172f89?auto=format&fit=crop&w=1920&q=80" fetchpriority="high">
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="BP2C">
@@ -19,9 +21,58 @@
   <meta property="og:description" content="BP2C, votre expert certifié à Fréjus. Urgence plomberie 24/7, installation chauffage, climatisation et rénovation de salle de bain. Devis gratuit.">
   <meta property="og:url" content="https://www.bp2c.net/">
   <meta property="og:image" content="https://images.unsplash.com/photo-1676210134188-4c05dd172f89?auto=format&fit=crop&w=1200&q=80">
-  <link rel="stylesheet" href="style.css?v=3">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BP2C - Plomberie, Chauffage, Climatisation et Rénovation à Fréjus">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BP2C - Plomberie, Chauffage, Climatisation &amp; Rénovation Fréjus">
+  <meta name="twitter:description" content="BP2C, votre expert certifié à Fréjus. Urgence plomberie 24/7, installation chauffage, climatisation et rénovation de salle de bain. Devis gratuit.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1676210134188-4c05dd172f89?auto=format&fit=crop&w=1200&q=80">
+  <link rel="stylesheet" href="css/style.css?v=4">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"LocalBusiness","name":"BP2C","telephone":"+33601761395","email":"contact@bp2c.net","address":{"@type":"PostalAddress","streetAddress":"160 Rue du Thoron","addressLocality":"Fréjus","postalCode":"83600","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":"43.4334","longitude":"6.7367"},"url":"https://www.bp2c.net"}
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "Plumber"],
+    "name": "BP2C",
+    "legalName": "BP2C",
+    "url": "https://www.bp2c.net",
+    "telephone": "+33601761395",
+    "email": "contact@bp2c.net",
+    "description": "Plomberie, chauffage, climatisation et rénovation salle de bain à Fréjus. Urgences 24h/24.",
+    "priceRange": "€€",
+    "openingHours": ["Mo-Fr 08:00-18:00"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "160 Rue du Thoron",
+      "addressLocality": "Fréjus",
+      "postalCode": "83600",
+      "addressRegion": "Var",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "43.4334",
+      "longitude": "6.7367"
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Fréjus"},
+      {"@type": "City", "name": "Saint-Raphaël"},
+      {"@type": "City", "name": "Roquebrune-sur-Argens"},
+      {"@type": "AdministrativeArea", "name": "Var"}
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services BP2C",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Plomberie d'urgence 24/7"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Installation chauffage"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Climatisation gainable"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Rénovation salle de bain"}}
+      ]
+    },
+    "sameAs": ["https://share.google/AuZEaEIZEZyZJYQUI"]
+  }
   </script>
   <style>
     @keyframes kenburns { 0%{transform:scale(1.08) translate(0,0)} 100%{transform:scale(1) translate(-1%,-1%)} }
@@ -301,7 +352,8 @@
 <div id="emergency-btn-placeholder"></div>
 <div id="toast-placeholder"></div>
 
-<script src="components.js?v=3" defer></script>
-<script src="script.js?v=3" defer></script>
+<script src="config/site.js"></script>
+<script src="js/components.js?v=4" defer></script>
+<script src="js/script.js?v=4" defer></script>
 </body>
 </html>

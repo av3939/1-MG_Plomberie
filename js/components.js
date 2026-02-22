@@ -1,4 +1,22 @@
 // BP2C - Shared Header & Footer Components
+// Lit window.SITE_CONFIG défini dans config/site.js (chargé avant ce fichier)
+
+const C = window.SITE_CONFIG;
+
+// ============================================================
+// THEME — Injection des CSS custom properties depuis C.theme
+// Les valeurs par défaut dans :root (style.css) sont identiques,
+// donc aucun impact visuel. Utile pour changer de client/thème.
+// ============================================================
+(function injectThemeVars() {
+  const t = C.theme;
+  const r = document.documentElement;
+  r.style.setProperty('--color-primary', t.colorPrimary);
+  r.style.setProperty('--color-accent',  t.colorAccent);
+  r.style.setProperty('--color-dark',    t.colorDark);
+  r.style.setProperty('--color-bg',      t.colorBg);
+  r.style.setProperty('--color-text',    t.colorText);
+})();
 
 // ============================================================
 // ICONS (Inline SVG)
@@ -14,7 +32,7 @@ const ICONS = {
   <line x1="18" y1="6" x2="6" y2="18"/>
   <line x1="6" y1="6" x2="18" y2="18"/>
   </svg>`,
-  chevronRight: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="9 18 15 12 9 6"/></svg>`, 
+  chevronRight: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="9 18 15 12 9 6"/></svg>`,
   arrowRight: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" style="margin-left:8px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`,
   shieldCheck: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>`,
   clock: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
@@ -57,11 +75,11 @@ function renderHeader() {
     <div style="display:flex;align-items:center;justify-content:space-between">
       <!-- Logo -->
       <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none">
-        <img src="https://horizons-cdn.hostinger.com/9fba43ae-9eea-4a9f-ab35-d6031519a866/68152e58c9d593adbe9e03b8d75dedcd.jpg"
-          alt="BP2C Logo" style="height:48px;width:auto;object-fit:contain;display:block">
+        <img src="${C.assets.logo}"
+          alt="${C.company.name} Logo" style="height:48px;width:auto;object-fit:contain;display:block">
         <div style="display:flex;flex-direction:column">
-          <span style="font-size:1.375rem;font-weight:800;color:#0f172a;line-height:1;letter-spacing:-0.02em">BP2C</span>
-          <span style="font-size:0.65rem;font-weight:600;color:#2563eb;letter-spacing:0.15em;text-transform:uppercase">L'excellence de l'habitat</span>
+          <span style="font-size:1.375rem;font-weight:800;color:#0f172a;line-height:1;letter-spacing:-0.02em">${C.company.name}</span>
+          <span style="font-size:0.65rem;font-weight:600;color:#2563eb;letter-spacing:0.15em;text-transform:uppercase">${C.company.tagline}</span>
         </div>
       </a>
 
@@ -72,11 +90,11 @@ function renderHeader() {
 
       <!-- Right actions -->
       <div style="display:flex;align-items:center;gap:12px">
-        <a href="tel:+33601761395" class="hide-mobile-menu"
+        <a href="tel:${C.contact.phone}" class="hide-mobile-menu"
           style="display:flex;align-items:center;gap:8px;background:#0f172a;color:white;padding:10px 20px;border-radius:9999px;font-weight:700;font-size:0.875rem;text-decoration:none;transition:all 0.3s"
           onmouseover="this.style.background='#1e293b'" onmouseout="this.style.background='#0f172a'">
           <span style="background:rgba(255,255,255,0.2);border-radius:50%;padding:4px;display:flex">${ICONS.phone}</span>
-          <span>06 01 76 13 95</span>
+          <span>${C.contact.phoneDisplay}</span>
         </a>
         <!-- Hamburger -->
         <button id="menu-btn" class="menu-toggle-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -90,14 +108,13 @@ function renderHeader() {
   <!-- Mobile Menu — drawer positionné sous le header via JS -->
   <div id="mobile-menu" role="navigation" aria-label="Menu mobile">
     <div class="mobile-menu-panel">
-     
 
       <nav class="mobile-menu-links">
         ${mobileNavHTML}
       </nav>
 
       <div class="mobile-menu-footer">
-        <a href="tel:+33601761395" class="menu-call-btn">
+        <a href="tel:${C.contact.phone}" class="menu-call-btn">
           ${ICONS.phone} Appeler maintenant
         </a>
         <div class="mobile-menu-sub">Disponible 7j/7 pour vos urgences</div>
@@ -129,24 +146,25 @@ function renderFooter() {
       <!-- Brand col -->
       <div class="footer-brand" style="max-width:340px">
         <a href="index.html">
-          <img src="https://horizons-cdn.hostinger.com/9fba43ae-9eea-4a9f-ab35-d6031519a866/68152e58c9d593adbe9e03b8d75dedcd.jpg"
-            alt="BP2C" style="height:56px;width:auto;filter:brightness(0) invert(1);opacity:0.9;margin-bottom:20px;display:block">
+          <img src="${C.assets.logo}"
+            alt="${C.company.name}" style="height:56px;width:auto;filter:brightness(0) invert(1);opacity:0.9;margin-bottom:20px;display:block">
         </a>
         <p style="color:#64748b;line-height:1.7;font-size:0.9rem;margin-bottom:24px">
-          Expertise et passion au service de votre habitat à Fréjus et ses environs. Plomberie, chauffage, climatisation et rénovation de salle de bain par des artisans certifiés.
+          ${C.company.description}
         </p>
         <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px">
           <div style="display:flex;align-items:center;gap:12px;font-size:0.875rem;color:#64748b">
             <span style="color:#22c55e">${ICONS.shieldCheck}</span> Garantie Décennale
           </div>
           <div style="display:flex;align-items:center;gap:12px;font-size:0.875rem;color:#64748b">
-            <span style="color:#f97316">${ICONS.clock}</span> Intervention 7j/7 (Urgences)
+            <span style="color:#f97316">${ICONS.clock}</span> ${C.hours.emergency}
           </div>
         </div>
         <div style="display:flex;gap:12px">
           ${['facebook','instagram','linkedin'].map(s => `
-            <a href="#" style="width:44px;height:44px;border-radius:12px;background:#0f172a;border:1px solid #1e293b;display:flex;align-items:center;justify-content:center;color:#64748b;text-decoration:none;transition:all 0.3s"
-              onmouseover="this.style.background='#2563eb';this.style.color='white'" onmouseout="this.style.background='#0f172a';this.style.color='#64748b'">
+            <a href="${C.social[s]}" style="width:44px;height:44px;border-radius:12px;background:#0f172a;border:1px solid #1e293b;display:flex;align-items:center;justify-content:center;color:#64748b;text-decoration:none;transition:all 0.3s"
+              onmouseover="this.style.background='#2563eb';this.style.color='white'" onmouseout="this.style.background='#0f172a';this.style.color='#64748b'"
+              aria-label="${s.charAt(0).toUpperCase()+s.slice(1)}">
               ${ICONS[s]}
             </a>
           `).join('')}
@@ -160,7 +178,7 @@ function renderFooter() {
           <span style="position:absolute;bottom:-2px;left:0;width:48px;height:4px;background:#2563eb;border-radius:4px"></span>
         </h3>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:14px">
-          ${[['Plomberie d\'urgence','plomberie.html'],['Chauffage & Chaudières','chauffage.html'],['Climatisation Gainable','climatisation.html'],['Rénovation Salle de Bain','renovation.html'],['Recherche de fuite','plomberie.html'],['Entretien annuel','chauffage.html']].map(([n,f]) => `
+          ${[["Plomberie d'urgence",'plomberie.html'],['Chauffage & Chaudières','chauffage.html'],['Climatisation Gainable','climatisation.html'],['Rénovation Salle de Bain','renovation.html'],['Recherche de fuite','plomberie.html'],['Entretien annuel','chauffage.html']].map(([n,f]) => `
             <li><a href="${f}" style="color:#64748b;text-decoration:none;font-size:0.9rem;transition:color 0.2s;display:flex;align-items:center;gap:8px"
               onmouseover="this.style.color='white'" onmouseout="this.style.color='#64748b'">
               <span style="width:6px;height:6px;border-radius:50%;background:#2563eb;flex-shrink:0;opacity:0;transition:opacity 0.2s" class="footer-dot"></span>
@@ -195,23 +213,23 @@ function renderFooter() {
             <div style="width:44px;height:44px;border-radius:12px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#60a5fa">${ICONS.mapPin}</div>
             <div>
               <span style="font-size:0.65rem;color:#475569;text-transform:uppercase;letter-spacing:0.1em;font-weight:700">Adresse</span>
-              <p style="color:#cbd5e1;margin-top:4px;line-height:1.5;font-size:0.9rem">160 Rue du Thoron<br>83600 Fréjus</p>
+              <p style="color:#cbd5e1;margin-top:4px;line-height:1.5;font-size:0.9rem">${C.contact.address.street}<br>${C.contact.address.postalCode} ${C.contact.address.city}</p>
             </div>
           </li>
           <li style="display:flex;align-items:flex-start;gap:16px">
             <div style="width:44px;height:44px;border-radius:12px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#60a5fa">${ICONS.phone}</div>
             <div>
               <span style="font-size:0.65rem;color:#475569;text-transform:uppercase;letter-spacing:0.1em;font-weight:700">Téléphone</span>
-              <p style="margin-top:4px"><a href="tel:+33601761395" style="font-size:1.125rem;font-weight:700;color:white;text-decoration:none;transition:color 0.2s"
-                onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='white'">06 01 76 13 95</a></p>
+              <p style="margin-top:4px"><a href="tel:${C.contact.phone}" style="font-size:1.125rem;font-weight:700;color:white;text-decoration:none;transition:color 0.2s"
+                onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='white'">${C.contact.phoneDisplay}</a></p>
             </div>
           </li>
           <li style="display:flex;align-items:flex-start;gap:16px">
             <div style="width:44px;height:44px;border-radius:12px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#60a5fa">${ICONS.mail}</div>
             <div>
               <span style="font-size:0.65rem;color:#475569;text-transform:uppercase;letter-spacing:0.1em;font-weight:700">Email</span>
-              <p style="margin-top:4px"><a href="mailto:contact@bp2c.net" style="color:#cbd5e1;text-decoration:none;font-size:0.875rem;transition:color 0.2s"
-                onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#cbd5e1'">contact@bp2c.net</a></p>
+              <p style="margin-top:4px"><a href="mailto:${C.contact.email}" style="color:#cbd5e1;text-decoration:none;font-size:0.875rem;transition:color 0.2s"
+                onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#cbd5e1'">${C.contact.email}</a></p>
             </div>
           </li>
         </ul>
@@ -220,7 +238,7 @@ function renderFooter() {
 
     <!-- Bottom bar -->
     <div style="border-top:1px solid #0f172a;padding-top:32px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;font-size:0.8rem;color:#475569">
-      <p>© ${year} BP2C. Tous droits réservés. | SIRET: 93409778300013</p>
+      <p>© ${year} ${C.company.name}. Tous droits réservés. | SIRET&nbsp;: ${C.company.siret}</p>
       <span>Artisanat Français 🇫🇷</span>
     </div>
   </div>
@@ -259,14 +277,14 @@ function renderCookieBanner() {
 // ============================================================
 function renderEmergencyBtn() {
   const html = `
-<a href="tel:+33601761395" id="emergency-btn" title="Urgence 24/7">
+<a href="tel:${C.contact.phone}" id="emergency-btn" title="Urgence 24/7">
   <span style="position:relative;display:flex">
     <span style="position:absolute;inset:0;border-radius:50%;background:rgba(249,115,22,0.4);animation:ping 2s cubic-bezier(0,0,.2,1) infinite"></span>
     <span style="position:relative;display:inline-flex;width:10px;height:10px;border-radius:50%;background:#f97316"></span>
   </span>
   <span style="display:flex;flex-direction:column;line-height:1.2">
     <span style="font-size:0.7rem;opacity:0.8">Urgence 24/7</span>
-    <span>06 01 76 13 95</span>
+    <span>${C.contact.phoneDisplay}</span>
   </span>
 </a>`;
 
@@ -330,56 +348,57 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!header || !menuBtn || !mobileMenu) return;
 
   function setMenuState(open) {
-  if (open) {
-    // Positionne le drawer exactement sous le header au moment de l'ouverture
+    if (open) {
+      // Positionne le drawer exactement sous le header au moment de l'ouverture
+      const h = header.offsetHeight || 0;
+      mobileMenu.style.top = h + 'px';
+      mobileMenu.style.height = `calc(100vh - ${h}px)`;
+
+      mobileMenu.classList.add('open');
+
+      // iOS Safari : overflow:hidden seul n'empêche pas le scroll momentum.
+      // Pattern position:fixed + top:-scrollY préserve la position visuelle.
+      const scrollY = window.scrollY;
+      document.body.dataset.scrollY = scrollY;
+      document.body.style.top = '-' + scrollY + 'px';
+      document.body.classList.add('no-scroll');
+
+      if (iconOpen)  iconOpen.style.display  = 'none';
+      if (iconClose) iconClose.style.display = 'block';
+      menuBtn.setAttribute('aria-label', 'Fermer le menu');
+      menuBtn.setAttribute('aria-expanded', 'true');
+    } else {
+      mobileMenu.classList.remove('open');
+
+      // iOS Safari : restaure la position de scroll avant de retirer position:fixed
+      const scrollY = parseInt(document.body.dataset.scrollY || '0', 10);
+      document.body.classList.remove('no-scroll');
+      document.body.style.top = '';
+      delete document.body.dataset.scrollY;
+      window.scrollTo(0, scrollY);
+
+      mobileMenu.style.top = '';
+      mobileMenu.style.height = '';
+
+      if (iconOpen)  iconOpen.style.display  = 'block';
+      if (iconClose) iconClose.style.display = 'none';
+      menuBtn.setAttribute('aria-label', 'Ouvrir le menu');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  // Recalcule la position et la hauteur du menu
+  function recalcMenuLayout() {
+    if (!mobileMenu.classList.contains('open')) return;
     const h = header.offsetHeight || 0;
     mobileMenu.style.top = h + 'px';
     mobileMenu.style.height = `calc(100vh - ${h}px)`;
-
-    mobileMenu.classList.add('open');
-
-    // iOS Safari : overflow:hidden seul n'empêche pas le scroll momentum.
-    // Pattern position:fixed + top:-scrollY préserve la position visuelle.
-    const scrollY = window.scrollY;
-    document.body.dataset.scrollY = scrollY;
-    document.body.style.top = '-' + scrollY + 'px';
-    document.body.classList.add('no-scroll');
-
-    if (iconOpen)  iconOpen.style.display  = 'none';
-    if (iconClose) iconClose.style.display = 'block';
-    menuBtn.setAttribute('aria-label', 'Fermer le menu');
-    menuBtn.setAttribute('aria-expanded', 'true');
-  } else {
-    mobileMenu.classList.remove('open');
-
-    // iOS Safari : restaure la position de scroll avant de retirer position:fixed
-    const scrollY = parseInt(document.body.dataset.scrollY || '0', 10);
-    document.body.classList.remove('no-scroll');
-    document.body.style.top = '';
-    delete document.body.dataset.scrollY;
-    window.scrollTo(0, scrollY);
-
-    mobileMenu.style.top = '';
-    mobileMenu.style.height = '';
-
-    if (iconOpen)  iconOpen.style.display  = 'block';
-    if (iconClose) iconClose.style.display = 'none';
-    menuBtn.setAttribute('aria-label', 'Ouvrir le menu');
-    menuBtn.setAttribute('aria-expanded', 'false');
   }
-}
-// Recalcule la position et la hauteur du menu
-function recalcMenuLayout() {
-  if (!mobileMenu.classList.contains('open')) return;
 
-  const h = header.offsetHeight || 0;
-
-  mobileMenu.style.top = h + 'px';
-  mobileMenu.style.height = `calc(100vh - ${h}px)`;
-}
   menuBtn.addEventListener('click', () => {
     setMenuState(!mobileMenu.classList.contains('open'));
   });
+
   // Fermeture avec la touche Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
@@ -387,24 +406,23 @@ function recalcMenuLayout() {
       menuBtn.focus();
     }
   });
+
   // Fermeture au clic sur un lien du menu
   mobileMenu.addEventListener('click', (e) => {
-    // clic sur un lien => fermer
     if (e.target.closest('a')) {
       setMenuState(false);
       return;
     }
-
-    // clic sur l'overlay (hors panel) => fermer
     const panel = e.target.closest('.mobile-menu-panel');
     if (!panel) setMenuState(false);
   });
+
   // Recalcule la position si la taille de l'écran change
   window.addEventListener('resize', recalcMenuLayout, { passive: true });
 
   // Recalcule si le téléphone change d'orientation
   window.addEventListener('orientationchange', recalcMenuLayout, { passive: true });
-  
+
   // ============================================================
   // SCROLL EFFECT + ajustement top du drawer
   // ============================================================
@@ -422,9 +440,6 @@ function recalcMenuLayout() {
       mobileMenu.style.top = h + 'px';
       mobileMenu.style.height = `calc(100vh - ${h}px)`;
     }
-
-   
   }, { passive: true });
 
 });
-

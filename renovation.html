@@ -7,11 +7,13 @@
   <meta name="description" content="Rénovation complète de salle de bain à Fréjus. Douche italienne, carrelage, plomberie. Un interlocuteur unique pour votre projet.">
   <link rel="canonical" href="https://www.bp2c.net/renovation.html">
   <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta name="theme-color" content="#0f172a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://horizons-cdn.hostinger.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1618836003104-ec6d67239040?auto=format&fit=crop&w=1920&q=80" fetchpriority="high">
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="BP2C">
@@ -19,7 +21,36 @@
   <meta property="og:description" content="Rénovation complète de salle de bain à Fréjus. Douche italienne, carrelage, plomberie. Un interlocuteur unique pour votre projet.">
   <meta property="og:url" content="https://www.bp2c.net/renovation.html">
   <meta property="og:image" content="https://images.unsplash.com/photo-1618836003104-ec6d67239040?auto=format&fit=crop&w=1200&q=80">
-  <link rel="stylesheet" href="style.css?v=3">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Rénovation salle de bain avant/après par BP2C à Fréjus">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rénovation Salle de Bain Fréjus | Design &amp; Travaux | BP2C">
+  <meta name="twitter:description" content="Rénovation complète de salle de bain à Fréjus. Douche italienne, carrelage, plomberie. Un interlocuteur unique pour votre projet.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1618836003104-ec6d67239040?auto=format&fit=crop&w=1200&q=80">
+  <link rel="stylesheet" href="css/style.css?v=4">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "BP2C – Rénovation Salle de Bain",
+    "url": "https://www.bp2c.net/renovation.html",
+    "telephone": "+33601761395",
+    "email": "contact@bp2c.net",
+    "description": "Rénovation complète de salle de bain à Fréjus. Conception, carrelage, plomberie, douche italienne. Clé en main.",
+    "priceRange": "€€",
+    "openingHours": ["Mo-Fr 08:00-18:00"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "160 Rue du Thoron",
+      "addressLocality": "Fréjus",
+      "postalCode": "83600",
+      "addressCountry": "FR"
+    },
+    "areaServed": [{"@type": "City", "name": "Fréjus"}, {"@type": "City", "name": "Saint-Raphaël"}, {"@type": "AdministrativeArea", "name": "Var"}]
+  }
+  </script>
 </head>
 <body style="background:#f8fafc">
 <div id="header-placeholder"></div>
@@ -142,13 +173,13 @@
         <div class="ba-media" data-ba>
           <!-- APRÈS (visible par défaut) -->
           <img class="ba-img ba-after"
-               src="URL_APRES_1"
+               src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=900&q=80"
                alt="Après rénovation - Salle de Bain Familiale"
                loading="lazy" decoding="async">
 
           <!-- AVANT (caché par défaut) -->
           <img class="ba-img ba-before"
-               src="URL_AVANT_1"
+               src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80"
                alt="Avant rénovation - Salle de Bain Familiale"
                loading="lazy" decoding="async">
 
@@ -182,12 +213,12 @@
       <article class="portfolio-card">
         <div class="ba-media" data-ba>
           <img class="ba-img ba-after"
-               src="URL_APRES_2"
+               src="https://images.unsplash.com/photo-1603825394551-2e7eaace6a2a?auto=format&fit=crop&w=900&q=80"
                alt="Après rénovation - Suite Parentale"
                loading="lazy" decoding="async">
 
           <img class="ba-img ba-before"
-               src="URL_AVANT_2"
+               src="https://images.unsplash.com/photo-1618836003104-ec6d67239040?auto=format&fit=crop&w=900&q=80"
                alt="Avant rénovation - Suite Parentale"
                loading="lazy" decoding="async">
 
@@ -221,12 +252,12 @@
       <article class="portfolio-card">
         <div class="ba-media" data-ba>
           <img class="ba-img ba-after"
-               src="URL_APRES_3"
+               src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=900&q=80"
                alt="Après rénovation - Salle de Douche Moderne"
                loading="lazy" decoding="async">
 
           <img class="ba-img ba-before"
-               src="URL_AVANT_3"
+               src="https://images.unsplash.com/photo-1676210134188-4c05dd172f89?auto=format&fit=crop&w=900&q=80"
                alt="Avant rénovation - Salle de Douche Moderne"
                loading="lazy" decoding="async">
 
@@ -280,7 +311,8 @@
 <div id="cookie-banner-placeholder"></div>
 <div id="emergency-btn-placeholder"></div>
 <div id="toast-placeholder"></div>
-<script src="components.js?v=3" defer></script>
-<script src="script.js?v=3" defer></script>
+<script src="config/site.js"></script>
+<script src="js/components.js?v=4" defer></script>
+<script src="js/script.js?v=4" defer></script>
 </body>
 </html>

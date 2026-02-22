@@ -15,12 +15,12 @@ document.addEventListener('click', function (e) {
 const cookieKey = 'bp2c_cookie_consent';
 
 function acceptCookies() {
-  localStorage.setItem(cookieKey, 'accepted');
+  try { localStorage.setItem(cookieKey, 'accepted'); } catch (e) {}
   const banner = document.getElementById('cookie-banner');
   if (banner) banner.classList.remove('visible');
 }
 function rejectCookies() {
-  localStorage.setItem(cookieKey, 'rejected');
+  try { localStorage.setItem(cookieKey, 'rejected'); } catch (e) {}
   const banner = document.getElementById('cookie-banner');
   if (banner) banner.classList.remove('visible');
 }
@@ -45,9 +45,11 @@ document.querySelectorAll('form[data-contact-form]').forEach(form => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form));
     data.date = new Date().toISOString();
-    const contacts = JSON.parse(localStorage.getItem('bp2c_contacts') || '[]');
-    contacts.push(data);
-    localStorage.setItem('bp2c_contacts', JSON.stringify(contacts));
+    try {
+      const contacts = JSON.parse(localStorage.getItem('bp2c_contacts') || '[]');
+      contacts.push(data);
+      localStorage.setItem('bp2c_contacts', JSON.stringify(contacts));
+    } catch (e) {}
     showToast('Message envoyé !', 'Nous vous contacterons dans les plus brefs délais.');
     form.reset();
   });
