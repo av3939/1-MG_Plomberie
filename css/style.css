@@ -304,7 +304,7 @@ body.no-scroll { overflow: hidden; position: fixed; width: 100%; }
 .faq-answer-inner { padding: 0 24px 24px; color: #475569; line-height: 1.7; font-size: 0.95rem; border-top: 1px solid #f8fafc; padding-top: 16px; margin-top: 2px; }
 
 /* Toast notification */
-#toast { position: fixed; top: 24px; right: 24px; z-index: 100; background: #0f172a; color: white; padding: 16px 24px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transform: translateX(150%); transition: transform 0.4s ease; max-width: 320px; }
+#toast { position: fixed; top: 24px; right: 24px; z-index: 100; background: var(--color-dark); color: white; padding: 16px 24px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transform: translateX(150%); transition: transform 0.4s ease; max-width: 320px; }
 #toast.visible { transform: translateX(0); }
 #toast .toast-title { font-weight: 700; margin-bottom: 4px; }
 #toast .toast-desc { font-size: 0.875rem; color: #94a3b8; }
@@ -493,7 +493,7 @@ body.no-scroll { overflow: hidden; position: fixed; width: 100%; }
 }
 
 .ba-pill-after{ background:#16a34a; }  /* APRÈS */
-.ba-pill-before{ background:#ea580c; } /* AVANT */
+.ba-pill-before{ background:var(--color-accent); } /* AVANT */
 
 /* Only show the correct pill */
 .ba-pill-before{ display:none; }

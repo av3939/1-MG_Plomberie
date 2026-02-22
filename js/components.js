@@ -19,6 +19,13 @@ const C = window.SITE_CONFIG;
 })();
 
 // ============================================================
+// CTA LINKS — href piloté depuis C.contact (body uniquement)
+// Le href HTML reste valide si JS est désactivé.
+// ============================================================
+document.querySelectorAll('[data-tel-cta]').forEach(function(a) { a.href = 'tel:' + C.contact.phone; });
+document.querySelectorAll('[data-email-cta]').forEach(function(a) { a.href = 'mailto:' + C.contact.email; });
+
+// ============================================================
 // ICONS (Inline SVG)
 // ============================================================
 const ICONS = {
