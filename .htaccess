@@ -1,0 +1,5 @@
+# BP2C — Configuration Apache
+# ============================================================
+
+# Page d'erreur 404 personnalisée
+ErrorDocument 404 /404.html

@@ -110,4 +110,12 @@ window.SITE_CONFIG = {
     fontFamily:    'Inter',     // Police Google Fonts chargée dans style.css
   },
 
+  /* ------------------------------------------------------------------
+   * STOCKAGE (clés localStorage)
+   * ------------------------------------------------------------------ */
+  storage: {
+    cookieKey:   'bp2c_cookie_consent',
+    contactsKey: 'bp2c_contacts',
+  },
+
 };
