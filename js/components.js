@@ -363,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // COOKIE BANNER
   // ============================================================
   const cookieBanner = document.getElementById('cookie-banner');
-  if (cookieBanner && !localStorage.getItem(C.storage.cookieKey)) {
+  if (cookieBanner && !localStorage.getItem(C.storage?.cookieKey ?? 'bp2c_cookie_consent')) {
     setTimeout(() => cookieBanner.classList.add('visible'), 800);
   }
 
