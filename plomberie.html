@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{site.lang}}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plomberie Fréjus | Dépannage Urgence 24/7 | BP2C</title>
-  <meta name="description" content="Plombier Fréjus expert. Intervention urgence 24/7, recherche de fuite, installation sanitaire. Qualité garantie.">
-  <link rel="canonical" href="https://www.bp2c.net/plomberie.html">
+  <title>{{seo.pages.plomberie.title}}</title>
+  <meta name="description" content="{{seo.pages.plomberie.description}}">
+  <link rel="canonical" href="{{seo.pages.plomberie.canonical}}">
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="{{theme.colorDark}}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://horizons-cdn.hostinger.com">
@@ -15,43 +15,43 @@
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1674913636232-115aa871d14f?auto=format&fit=crop&w=1920&q=80" fetchpriority="high">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:site_name" content="BP2C">
-  <meta property="og:title" content="Plomberie Fréjus | Dépannage Urgence 24/7 | BP2C">
-  <meta property="og:description" content="Plombier Fréjus expert. Intervention urgence 24/7, recherche de fuite, installation sanitaire. Qualité garantie.">
-  <meta property="og:url" content="https://www.bp2c.net/plomberie.html">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1674913636232-115aa871d14f?auto=format&fit=crop&w=1200&q=80">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Plombier professionnel BP2C à Fréjus">
+  <meta property="og:locale" content="{{site.locale}}">
+  <meta property="og:site_name" content="{{site.name}}">
+  <meta property="og:title" content="{{seo.pages.plomberie.title}}">
+  <meta property="og:description" content="{{seo.pages.plomberie.description}}">
+  <meta property="og:url" content="{{seo.pages.plomberie.canonical}}">
+  <meta property="og:image" content="{{seo.pages.plomberie.ogImage}}">
+  <meta property="og:image:width" content="{{assets.ogImageWidth}}">
+  <meta property="og:image:height" content="{{assets.ogImageHeight}}">
+  <meta property="og:image:alt" content="{{seo.pages.plomberie.ogImageAlt}}">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Plomberie Fréjus | Dépannage Urgence 24/7 | BP2C">
-  <meta name="twitter:description" content="Plombier Fréjus expert. Intervention urgence 24/7, recherche de fuite, installation sanitaire. Qualité garantie.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1674913636232-115aa871d14f?auto=format&fit=crop&w=1200&q=80">
-  <meta name="twitter:image:alt" content="Plombier professionnel BP2C à Fréjus">
+  <meta name="twitter:title" content="{{seo.pages.plomberie.title}}">
+  <meta name="twitter:description" content="{{seo.pages.plomberie.description}}">
+  <meta name="twitter:image" content="{{seo.pages.plomberie.ogImage}}">
+  <meta name="twitter:image:alt" content="{{seo.pages.plomberie.ogImageAlt}}">
   <link rel="stylesheet" href="css/style.css?v=4">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Plumber",
-    "name": "BP2C – Plomberie",
-    "url": "https://www.bp2c.net/plomberie.html",
-    "telephone": "+33601761395",
-    "email": "contact@bp2c.net",
-    "description": "Plombier urgence 24/7 à Fréjus. Fuites, débouchage, recherche de fuite, installation sanitaire.",
+    "name": "{{seo.pages.plomberie.schemaName}}",
+    "url": "{{seo.pages.plomberie.canonical}}",
+    "telephone": "{{contact.phone}}",
+    "email": "{{contact.email}}",
+    "description": "{{seo.pages.plomberie.schemaDesc}}",
     "priceRange": "€€",
     "openingHours": ["Mo-Fr 08:00-18:00"],
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "160 Rue du Thoron",
-      "addressLocality": "Fréjus",
-      "postalCode": "83600",
-      "addressCountry": "FR"
+      "streetAddress": "{{contact.address.street}}",
+      "addressLocality": "{{contact.address.city}}",
+      "postalCode": "{{contact.address.postalCode}}",
+      "addressCountry": "{{contact.address.country}}"
     },
     "areaServed": [{"@type": "City", "name": "Fréjus"}, {"@type": "City", "name": "Saint-Raphaël"}, {"@type": "AdministrativeArea", "name": "Var"}],
-    "geo": {"@type": "GeoCoordinates", "latitude": "43.4334", "longitude": "6.7367"},
-    "sameAs": ["https://share.google/AuZEaEIZEZyZJYQUI"]
+    "geo": {"@type": "GeoCoordinates", "latitude": "{{contact.geo.latitude}}", "longitude": "{{contact.geo.longitude}}"},
+    "sameAs": ["{{social.google}}"]
   }
   </script>
 </head>
@@ -80,7 +80,7 @@
         BP2C intervient rapidement avec efficacité, propreté et garantie.
       </p>
       <div style="display:flex;flex-wrap:wrap;gap:16px">
-        <a href="tel:+33601761395" data-tel-cta class="btn btn-red btn-rounded-full" style="padding:16px 36px;font-size:1rem;gap:8px">
+        <a href="tel:{{contact.phone}}" data-tel-cta class="btn btn-red btn-rounded-full" style="padding:16px 36px;font-size:1rem;gap:8px">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           Urgence 24/7
         </a>
@@ -172,9 +172,9 @@
     <h2 style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;color:white;margin-bottom:20px">Besoin d'un plombier maintenant ?</h2>
     <p style="color:#64748b;font-size:1.125rem;max-width:560px;margin:0 auto 44px;line-height:1.7">Ne laissez pas une fuite s'aggraver. Contactez-nous pour une intervention rapide.</p>
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
-      <a href="tel:+33601761395" data-tel-cta class="btn btn-primary btn-rounded-full" style="padding:16px 40px;font-size:1rem;gap:10px">
+      <a href="tel:{{contact.phone}}" data-tel-cta class="btn btn-primary btn-rounded-full" style="padding:16px 40px;font-size:1rem;gap:10px">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        <span data-token="contact.phoneDisplay">06 01 76 13 95</span>
+        <span data-token="contact.phoneDisplay">{{contact.phoneDisplay}}</span>
       </a>
       <a href="contact.html" class="btn btn-ghost btn-rounded-full" style="padding:16px 40px;font-size:1rem">
         Formulaire de contact

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{site.lang}}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Politique de Confidentialité | BP2C</title>
-  <meta name="description" content="Politique de confidentialité et protection des données personnelles de BP2C. Conformité RGPD.">
+  <title>{{seo.pages.politiqueConf.title}}</title>
+  <meta name="description" content="{{seo.pages.politiqueConf.description}}">
   <meta name="robots" content="noindex, follow">
   <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta name="theme-color" content="{{theme.colorDark}}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://horizons-cdn.hostinger.com">
@@ -33,10 +34,10 @@
       <section>
         <h2 style="font-size:1.375rem;font-weight:700;color:#111827;margin-bottom:16px;border-left:4px solid #2563eb;padding-left:16px">Responsable du traitement</h2>
         <div style="color:#374151;line-height:1.8;display:flex;flex-direction:column;gap:6px">
-          <p><strong>Raison sociale :</strong> <span data-token="company.legalName">BP2C</span></p>
-          <p><strong>Siège social :</strong> <span data-token="contact.address.full">160 Rue du Thoron, 83600 Fréjus</span></p>
-          <p><strong>Email :</strong> <a href="mailto:contact@bp2c.net" data-email-cta data-token="contact.email" style="color:#2563eb;text-decoration:none">contact@bp2c.net</a></p>
-          <p><strong>Téléphone :</strong> <a href="tel:+33601761395" data-tel-cta data-token="contact.phoneDisplay" style="color:#2563eb;text-decoration:none">06 01 76 13 95</a></p>
+          <p><strong>Raison sociale :</strong> <span data-token="company.legalName">{{company.legalName}}</span></p>
+          <p><strong>Siège social :</strong> <span data-token="contact.address.full">{{contact.address.full}}</span></p>
+          <p><strong>Email :</strong> <a href="mailto:{{contact.email}}" data-email-cta data-token="contact.email" style="color:#2563eb;text-decoration:none">{{contact.email}}</a></p>
+          <p><strong>Téléphone :</strong> <a href="tel:{{contact.phone}}" data-tel-cta data-token="contact.phoneDisplay" style="color:#2563eb;text-decoration:none">{{contact.phoneDisplay}}</a></p>
         </div>
       </section>
 
@@ -103,7 +104,7 @@
           <li><strong>Droit à la portabilité :</strong> recevoir vos données dans un format structuré</li>
           <li><strong>Droit de retirer votre consentement :</strong> à tout moment</li>
         </ul>
-        <p style="color:#374151;line-height:1.7;margin-top:16px">Pour exercer ces droits, vous pouvez nous contacter à : <a href="mailto:contact@bp2c.net" data-email-cta data-token="contact.email" style="color:#2563eb;text-decoration:none">contact@bp2c.net</a></p>
+        <p style="color:#374151;line-height:1.7;margin-top:16px">Pour exercer ces droits, vous pouvez nous contacter à : <a href="mailto:{{contact.email}}" data-email-cta data-token="contact.email" style="color:#2563eb;text-decoration:none">{{contact.email}}</a></p>
       </section>
 
       <section>

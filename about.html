@@ -1,61 +1,61 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{site.lang}}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>À propos de BP2C | Votre Artisan de Confiance</title>
-  <meta name="description" content="Découvrez BP2C, entreprise de plomberie et chauffage à Fréjus dirigée par William. Engagement qualité, expertise et satisfaction client.">
-  <link rel="canonical" href="https://www.bp2c.net/about.html">
+  <title>{{seo.pages.about.title}}</title>
+  <meta name="description" content="{{seo.pages.about.description}}">
+  <link rel="canonical" href="{{seo.pages.about.canonical}}">
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="{{theme.colorDark}}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://horizons-cdn.hostinger.com">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:site_name" content="BP2C">
-  <meta property="og:title" content="À propos de BP2C | Votre Artisan de Confiance">
-  <meta property="og:description" content="Découvrez BP2C, entreprise de plomberie et chauffage à Fréjus dirigée par William. Engagement qualité, expertise et satisfaction client.">
-  <meta property="og:url" content="https://www.bp2c.net/about.html">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1676210134188-4c05dd172f89?auto=format&fit=crop&w=1200&q=80">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="William, fondateur de BP2C à Fréjus">
+  <meta property="og:locale" content="{{site.locale}}">
+  <meta property="og:site_name" content="{{site.name}}">
+  <meta property="og:title" content="{{seo.pages.about.title}}">
+  <meta property="og:description" content="{{seo.pages.about.description}}">
+  <meta property="og:url" content="{{seo.pages.about.canonical}}">
+  <meta property="og:image" content="{{seo.pages.about.ogImage}}">
+  <meta property="og:image:width" content="{{assets.ogImageWidth}}">
+  <meta property="og:image:height" content="{{assets.ogImageHeight}}">
+  <meta property="og:image:alt" content="{{seo.pages.about.ogImageAlt}}">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="À propos de BP2C | Votre Artisan de Confiance">
-  <meta name="twitter:description" content="Découvrez BP2C, entreprise de plomberie et chauffage à Fréjus dirigée par William. Engagement qualité, expertise et satisfaction client.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1676210134188-4c05dd172f89?auto=format&fit=crop&w=1200&q=80">
-  <meta name="twitter:image:alt" content="William, fondateur de BP2C à Fréjus">
+  <meta name="twitter:title" content="{{seo.pages.about.title}}">
+  <meta name="twitter:description" content="{{seo.pages.about.description}}">
+  <meta name="twitter:image" content="{{seo.pages.about.ogImage}}">
+  <meta name="twitter:image:alt" content="{{seo.pages.about.ogImageAlt}}">
   <link rel="stylesheet" href="css/style.css?v=4">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "BP2C",
-    "url": "https://www.bp2c.net/about.html",
-    "telephone": "+33601761395",
-    "email": "contact@bp2c.net",
-    "description": "BP2C, artisans certifiés à Fréjus. Plomberie, chauffage, climatisation et rénovation. Fondé par William.",
+    "name": "{{seo.pages.about.schemaName}}",
+    "url": "{{seo.pages.about.canonical}}",
+    "telephone": "{{contact.phone}}",
+    "email": "{{contact.email}}",
+    "description": "{{seo.pages.about.schemaDesc}}",
     "priceRange": "€€",
     "openingHours": ["Mo-Fr 08:00-18:00"],
-    "founder": {"@type": "Person", "name": "William"},
+    "founder": {"@type": "Person", "name": "{{company.founder}}"},
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "160 Rue du Thoron",
-      "addressLocality": "Fréjus",
-      "postalCode": "83600",
-      "addressCountry": "FR"
+      "streetAddress": "{{contact.address.street}}",
+      "addressLocality": "{{contact.address.city}}",
+      "postalCode": "{{contact.address.postalCode}}",
+      "addressCountry": "{{contact.address.country}}"
     },
-    "geo": {"@type": "GeoCoordinates", "latitude": "43.4334", "longitude": "6.7367"},
+    "geo": {"@type": "GeoCoordinates", "latitude": "{{contact.geo.latitude}}", "longitude": "{{contact.geo.longitude}}"},
     "areaServed": [
       {"@type": "City", "name": "Fréjus"},
       {"@type": "City", "name": "Saint-Raphaël"},
       {"@type": "City", "name": "Roquebrune-sur-Argens"},
       {"@type": "AdministrativeArea", "name": "Var"}
     ],
-    "sameAs": ["https://share.google/AuZEaEIZEZyZJYQUI"]
+    "sameAs": ["{{social.google}}"]
   }
   </script>
 </head>
