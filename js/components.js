@@ -1,4 +1,4 @@
-// BP2C - Shared Header & Footer Components
+// Template Artisan - Shared Header & Footer Components
 // Lit window.SITE_CONFIG défini dans config/site.js (chargé avant ce fichier)
 
 const C = window.SITE_CONFIG;
@@ -363,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // COOKIE BANNER
   // ============================================================
   const cookieBanner = document.getElementById('cookie-banner');
-  if (cookieBanner && !localStorage.getItem(C.storage?.cookieKey ?? 'bp2c_cookie_consent')) {
+  if (cookieBanner && !localStorage.getItem(C.storage.cookieKey)) {
     setTimeout(() => cookieBanner.classList.add('visible'), 800);
   }
 

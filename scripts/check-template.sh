@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-# check-template.sh — Vérification pré-déploiement du template BP2C
+# check-template.sh — Vérification pré-déploiement du template Artisan
 # Compatibilité : macOS (BSD grep) + Linux (GNU grep)
 # Usage : bash scripts/check-template.sh [RACINE_DU_PROJET]
 # =============================================================================
@@ -21,7 +21,7 @@ warn() { yellow "  [AVERT.]  $*"; WARNINGS=$((WARNINGS+1)); }
 ok()   { green  "  [OK]      $*"; }
 
 bold "============================================================"
-bold " BP2C — Vérification template"
+bold " Template Artisan — Vérification"
 bold " Racine : $ROOT"
 bold "============================================================"
 

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-BP2C is a static website for a plumbing/heating/AC/renovation company (Fréjus, France). No build tools, no frameworks, no package manager — pure HTML, CSS, and vanilla JavaScript.
+This is a static website template for local artisan businesses (plumbing, heating, AC, renovation). No build tools, no frameworks, no package manager — pure HTML, CSS, and vanilla JavaScript. A Node.js build pipeline (`scripts/build.mjs`) resolves `{{tokens}}` and generates the deployable `dist/` folder.
 
 ## Development
 
@@ -15,7 +15,7 @@ python3 -m http.server 8080
 npx serve .
 ```
 
-No build, lint, or test commands exist. Cache-bust CSS/JS changes by incrementing the version query param (e.g., `style.css?v=2`).
+Build: `npm run build` (generates `dist/`). Preview: `npm run preview`. No lint or test commands. Cache-bust CSS/JS changes by incrementing the version query param (e.g., `style.css?v=2`).
 
 ## Architecture
 
@@ -32,7 +32,7 @@ On `DOMContentLoaded`, [components.js](components.js) fills these placeholders b
 ### Script Responsibilities
 
 - [components.js](components.js) — shared UI: header, footer, cookie banner, floating emergency button, toast container, and the `DOMContentLoaded` initializer that wires up the mobile menu toggle.
-- [script.js](script.js) — page-level interactions: header scroll effect, active nav link detection, cookie banner logic, contact form (saves to `localStorage` as `bp2c_contacts`), FAQ accordion, smooth scroll, and scroll-reveal via `IntersectionObserver`.
+- [script.js](script.js) — page-level interactions: header scroll effect, active nav link detection, cookie banner logic, contact form (saves to `localStorage` key from `SITE_CONFIG.storage.contactsKey`), FAQ accordion, smooth scroll, and scroll-reveal via `IntersectionObserver`.
 - [style.css](style.css) — all styling; uses custom CSS animations (`kenburns`, `fadeInUp`, `emergencyPulse`, etc.) and a single 768px breakpoint for responsive layout.
 
 ### Mobile Menu
@@ -45,7 +45,7 @@ Each of the 10 HTML pages is self-contained with inline Schema.org JSON-LD struc
 
 ### Data Persistence
 
-- Contact form submissions → `localStorage` key `bp2c_contacts` (JSON array)
-- Cookie consent → `localStorage` key `bp2c_cookie_consent`
+- Contact form submissions → `localStorage` key defined in `SITE_CONFIG.storage.contactsKey` (default: `site_contacts`)
+- Cookie consent → `localStorage` key defined in `SITE_CONFIG.storage.cookieKey` (default: `site_cookie_consent`)
 
 No backend or external API integrations exist.

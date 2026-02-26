@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-
-# Exclure la configuration côté serveur
-Disallow: /config/
-
-Sitemap: https://www.bp2c.net/sitemap.xml

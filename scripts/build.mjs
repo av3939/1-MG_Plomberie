@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * scripts/build.mjs — Build statique BP2C
+ * scripts/build.mjs — Build statique Template Artisan
  * =========================================
  * Usage : node scripts/build.mjs
  *

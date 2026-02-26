@@ -1,6 +1,6 @@
 /**
- * BP2C — Configuration centrale du site
- * ======================================
+ * Template Artisan — Configuration centrale du site
+ * ==================================================
  * Toutes les infos client, assets, SEO par page et paramètres de thème.
  * Modifiez CE fichier pour adapter le site à un nouveau client.
  *
@@ -16,37 +16,37 @@ window.SITE_CONFIG = {
    * ENTREPRISE
    * ------------------------------------------------------------------ */
   company: {
-    name:        'BP2C',                        // Nom affiché partout
-    legalName:   'BP2C',                        // Raison sociale exacte
-    tagline:     "L'excellence de l'habitat",   // Sous-titre logo
-    siret:       '93409778300013',
-    founder:     'William',
-    description: 'Expertise et passion au service de votre habitat à Fréjus et ses environs. Plomberie, chauffage, climatisation et rénovation de salle de bain par des artisans certifiés.',
+    name:        'Entreprise Exemple',                  // Nom affiché partout
+    legalName:   'Entreprise Exemple SARL',             // Raison sociale exacte
+    tagline:     "Votre artisan de confiance",          // Sous-titre logo
+    siret:       '00000000000000',
+    founder:     'Prénom Fondateur',
+    description: 'Artisan qualifié au service de votre habitat. Plomberie, chauffage, climatisation et rénovation par des professionnels certifiés.',
   },
 
   /* ------------------------------------------------------------------
    * COORDONNÉES
    * ------------------------------------------------------------------ */
   contact: {
-    phone:        '+33601761395',               // Format E.164 (liens tel:)
-    phoneDisplay: '06 01 76 13 95',             // Format affiché
-    email:        'contact@bp2c.net',
+    phone:        '+33123456789',               // Format E.164 (liens tel:)
+    phoneDisplay: '01 23 45 67 89',             // Format affiché
+    email:        'contact@example.fr',
     address: {
-      street:      '160 Rue du Thoron',
-      city:        'Fréjus',
-      postalCode:  '83600',
-      department:  'Var',
+      street:      '10 Rue Exemple',
+      city:        'Ville Exemple',
+      postalCode:  '75000',
+      department:  'Département Exemple',
       country:     'FR',
       countryName: 'France',
       // Champs calculés — miroir de hydrateClientTokens dans components.js
       // Utilisés par les tokens de build {{contact.address.*}} ET le runtime JS.
-      cityLine:    '83600\u00a0Fréjus',
-      full:        '160 Rue du Thoron, 83600\u00a0Fréjus',
-      fullCountry: '160 Rue du Thoron, 83600\u00a0Fréjus, France',
+      cityLine:    '75000\u00a0Ville Exemple',
+      full:        '10 Rue Exemple, 75000\u00a0Ville Exemple',
+      fullCountry: '10 Rue Exemple, 75000\u00a0Ville Exemple, France',
     },
     geo: {
-      latitude:  '43.4334',
-      longitude: '6.7367',
+      latitude:  '48.8566',
+      longitude: '2.3522',
     },
   },
 
@@ -63,8 +63,7 @@ window.SITE_CONFIG = {
    * ZONE D'INTERVENTION
    * ------------------------------------------------------------------ */
   serviceArea: [
-    'Fréjus', 'Saint-Raphaël', 'Roquebrune-sur-Argens',
-    'Puget-sur-Argens', 'Les Arcs-sur-Argens', 'Var',
+    'Ville Exemple', 'Commune 1', 'Commune 2',
   ],
 
   /* ------------------------------------------------------------------
@@ -74,14 +73,14 @@ window.SITE_CONFIG = {
     facebook:  '#',
     instagram: '#',
     linkedin:  '#',
-    google:    'https://share.google/AuZEaEIZEZyZJYQUI',
+    google:    '#',
   },
 
   /* ------------------------------------------------------------------
    * ASSETS
    * ------------------------------------------------------------------ */
   assets: {
-    logo:           'https://horizons-cdn.hostinger.com/9fba43ae-9eea-4a9f-ab35-d6031519a866/68152e58c9d593adbe9e03b8d75dedcd.jpg',
+    logo:           '/assets/images/logo.jpg',
     favicon:        '/favicon.ico',
     ogImageDefault: 'https://images.unsplash.com/photo-1676210134188-4c05dd172f89?auto=format&fit=crop&w=1200&q=80',
     ogImageWidth:   '1200',
@@ -92,9 +91,9 @@ window.SITE_CONFIG = {
    * SITE
    * ------------------------------------------------------------------ */
   site: {
-    url:    'https://www.bp2c.net',
-    domain: 'www.bp2c.net',               // Sans protocole — usage dans les textes légaux
-    name:   'BP2C',
+    url:    'https://example.fr',
+    domain: 'example.fr',               // Sans protocole — usage dans les textes légaux
+    name:   'Entreprise Exemple',
     locale: 'fr_FR',
     lang:   'fr',
   },
@@ -115,8 +114,8 @@ window.SITE_CONFIG = {
    * STOCKAGE (clés localStorage)
    * ------------------------------------------------------------------ */
   storage: {
-    cookieKey:   'bp2c_cookie_consent',
-    contactsKey: 'bp2c_contacts',
+    cookieKey:   'site_cookie_consent',
+    contactsKey: 'site_contacts',
   },
 
   /* ------------------------------------------------------------------
@@ -137,97 +136,97 @@ window.SITE_CONFIG = {
     pages: {
 
       index: {
-        title:        'BP2C – Plomberie, Chauffage, Climatisation &amp; Rénovation à Fréjus',
-        twitterTitle: 'BP2C – Plomberie, Chauffage, Climatisation &amp; Rénovation à Fréjus',
-        description:  'BP2C, votre expert certifié à Fréjus. Urgence plomberie 24/7, installation chauffage, climatisation et rénovation de salle de bain. Devis gratuit.',
-        canonical:    'https://www.bp2c.net/',
+        title:        'Entreprise Exemple – Plomberie, Chauffage, Climatisation &amp; Rénovation',
+        twitterTitle: 'Entreprise Exemple – Plomberie, Chauffage, Climatisation &amp; Rénovation',
+        description:  'Entreprise Exemple, votre expert certifié. Urgence plomberie 24/7, installation chauffage, climatisation et rénovation de salle de bain. Devis gratuit.',
+        canonical:    'https://example.fr/',
         ogImage:      'https://images.unsplash.com/photo-1676210134188-4c05dd172f89?auto=format&fit=crop&w=1200&q=80',
-        ogImageAlt:   'BP2C - Plomberie, Chauffage, Climatisation et Rénovation à Fréjus',
-        schemaName:   'BP2C',
-        schemaDesc:   'Plomberie, chauffage, climatisation et rénovation salle de bain à Fréjus. Urgences 24h/24.',
+        ogImageAlt:   'Entreprise Exemple - Plomberie, Chauffage, Climatisation et Rénovation',
+        schemaName:   'Entreprise Exemple',
+        schemaDesc:   'Plomberie, chauffage, climatisation et rénovation salle de bain. Urgences 24h/24.',
       },
 
       chauffage: {
-        title:       'Chauffage à Fréjus – BP2C | Installation &amp; Entretien',
-        description: 'Expert chauffagiste Fréjus. Installation chaudière, pompe à chaleur, entretien annuel. Confort thermique garanti.',
-        canonical:   'https://www.bp2c.net/chauffage.html',
+        title:       'Chauffage – Entreprise Exemple | Installation &amp; Entretien',
+        description: 'Expert chauffagiste. Installation chaudière, pompe à chaleur, entretien annuel. Confort thermique garanti.',
+        canonical:   'https://example.fr/chauffage.html',
         ogImage:     'https://images.unsplash.com/photo-1700124084147-995973b6a970?auto=format&fit=crop&w=1200&q=80',
-        ogImageAlt:  'Installation chauffage par BP2C à Fréjus',
-        schemaName:  'BP2C \u2013 Chauffage',
-        schemaDesc:  'Installation et entretien chaudières, pompes à chaleur et radiateurs à Fréjus. Devis gratuit.',
+        ogImageAlt:  'Installation chauffage par Entreprise Exemple',
+        schemaName:  'Entreprise Exemple \u2013 Chauffage',
+        schemaDesc:  'Installation et entretien chaudières, pompes à chaleur et radiateurs. Devis gratuit.',
       },
 
       plomberie: {
-        title:       'Plomberie à Fréjus – BP2C | Urgence 24h/7j',
-        description: 'Plombier Fréjus expert. Intervention urgence 24/7, recherche de fuite, installation sanitaire. Qualité garantie.',
-        canonical:   'https://www.bp2c.net/plomberie.html',
+        title:       'Plomberie – Entreprise Exemple | Urgence 24h/7j',
+        description: 'Plombier expert. Intervention urgence 24/7, recherche de fuite, installation sanitaire. Qualité garantie.',
+        canonical:   'https://example.fr/plomberie.html',
         ogImage:     'https://images.unsplash.com/photo-1674913636232-115aa871d14f?auto=format&fit=crop&w=1200&q=80',
-        ogImageAlt:  'Plombier professionnel BP2C à Fréjus',
-        schemaName:  'BP2C \u2013 Plomberie',
-        schemaDesc:  'Plombier urgence 24/7 à Fréjus. Fuites, débouchage, recherche de fuite, installation sanitaire.',
+        ogImageAlt:  'Plombier professionnel Entreprise Exemple',
+        schemaName:  'Entreprise Exemple \u2013 Plomberie',
+        schemaDesc:  'Plombier urgence 24/7. Fuites, débouchage, recherche de fuite, installation sanitaire.',
       },
 
       climatisation: {
-        title:       'Climatisation à Fréjus – BP2C | Gainable &amp; Split',
-        description: "Installation de climatisation à Fréjus. Spécialiste du gainable et réversible. Fraîcheur l'été, chaleur l'hiver.",
-        canonical:   'https://www.bp2c.net/climatisation.html',
+        title:       'Climatisation – Entreprise Exemple | Gainable &amp; Split',
+        description: "Installation de climatisation. Spécialiste du gainable et réversible. Fraîcheur l'été, chaleur l'hiver.",
+        canonical:   'https://example.fr/climatisation.html',
         ogImage:     'https://images.unsplash.com/photo-1699974783477-74e9ab7546a4?auto=format&fit=crop&w=1200&q=80',
-        ogImageAlt:  'Installation climatisation gainable BP2C à Fréjus',
-        schemaName:  'BP2C \u2013 Climatisation',
-        schemaDesc:  'Installation climatisation gainable et split à Fréjus. Spécialiste réversible toutes saisons.',
+        ogImageAlt:  'Installation climatisation gainable Entreprise Exemple',
+        schemaName:  'Entreprise Exemple \u2013 Climatisation',
+        schemaDesc:  'Installation climatisation gainable et split. Spécialiste réversible toutes saisons.',
       },
 
       renovation: {
-        title:       'Rénovation Salle de Bain à Fréjus – BP2C',
-        description: 'Rénovation complète de salle de bain à Fréjus. Douche italienne, carrelage, plomberie. Un interlocuteur unique pour votre projet.',
-        canonical:   'https://www.bp2c.net/renovation.html',
+        title:       'Rénovation Salle de Bain – Entreprise Exemple',
+        description: 'Rénovation complète de salle de bain. Douche italienne, carrelage, plomberie. Un interlocuteur unique pour votre projet.',
+        canonical:   'https://example.fr/renovation.html',
         ogImage:     'https://images.unsplash.com/photo-1618836003104-ec6d67239040?auto=format&fit=crop&w=1200&q=80',
-        ogImageAlt:  'Rénovation salle de bain avant/après par BP2C à Fréjus',
-        schemaName:  'BP2C \u2013 R\u00e9novation Salle de Bain',
-        schemaDesc:  'Rénovation complète de salle de bain à Fréjus. Conception, carrelage, plomberie, douche italienne. Clé en main.',
+        ogImageAlt:  'Rénovation salle de bain avant/après par Entreprise Exemple',
+        schemaName:  'Entreprise Exemple \u2013 R\u00e9novation Salle de Bain',
+        schemaDesc:  'Rénovation complète de salle de bain. Conception, carrelage, plomberie, douche italienne. Clé en main.',
       },
 
       contact: {
-        title:       'Contact BP2C à Fréjus | Devis Gratuit',
-        description: 'Contactez BP2C à Fréjus pour vos travaux de plomberie et chauffage. Devis gratuit, réponse rapide.',
-        canonical:   'https://www.bp2c.net/contact.html',
+        title:       'Contact Entreprise Exemple | Devis Gratuit',
+        description: 'Contactez Entreprise Exemple pour vos travaux de plomberie et chauffage. Devis gratuit, réponse rapide.',
+        canonical:   'https://example.fr/contact.html',
         ogImage:     'https://images.unsplash.com/photo-1676210134188-4c05dd172f89?auto=format&fit=crop&w=1200&q=80',
-        ogImageAlt:  'Contactez BP2C à Fréjus',
-        schemaName:  'Contact BP2C',
-        schemaDesc:  'Contactez BP2C pour un devis gratuit. Plomberie, chauffage, climatisation, rénovation à Fréjus.',
+        ogImageAlt:  'Contactez Entreprise Exemple',
+        schemaName:  'Contact Entreprise Exemple',
+        schemaDesc:  'Contactez Entreprise Exemple pour un devis gratuit. Plomberie, chauffage, climatisation, rénovation.',
       },
 
       about: {
-        title:       'À propos de BP2C – Votre Artisan à Fréjus',
-        description: 'Découvrez BP2C, entreprise de plomberie et chauffage à Fréjus dirigée par William. Engagement qualité, expertise et satisfaction client.',
-        canonical:   'https://www.bp2c.net/about.html',
+        title:       'À propos – Entreprise Exemple | Votre Artisan',
+        description: 'Découvrez Entreprise Exemple, artisan qualifié en plomberie et chauffage. Engagement qualité, expertise et satisfaction client.',
+        canonical:   'https://example.fr/about.html',
         ogImage:     'https://images.unsplash.com/photo-1676210134188-4c05dd172f89?auto=format&fit=crop&w=1200&q=80',
-        ogImageAlt:  'William, fondateur de BP2C à Fréjus',
-        schemaName:  'BP2C',
-        schemaDesc:  'BP2C, artisans certifiés à Fréjus. Plomberie, chauffage, climatisation et rénovation. Fondé par William.',
+        ogImageAlt:  'Fondateur de Entreprise Exemple',
+        schemaName:  'Entreprise Exemple',
+        schemaDesc:  'Artisans certifiés. Plomberie, chauffage, climatisation et rénovation.',
       },
 
       faq: {
-        title:       'FAQ – BP2C | Plomberie, Chauffage à Fréjus',
-        description: 'Réponses aux questions fréquentes sur nos services de plomberie, chauffage et climatisation à Fréjus.',
-        canonical:   'https://www.bp2c.net/faq.html',
+        title:       'FAQ – Entreprise Exemple | Plomberie, Chauffage',
+        description: 'Réponses aux questions fréquentes sur nos services de plomberie, chauffage et climatisation.',
+        canonical:   'https://example.fr/faq.html',
         ogImage:     'https://images.unsplash.com/photo-1676210134188-4c05dd172f89?auto=format&fit=crop&w=1200&q=80',
-        ogImageAlt:  'FAQ BP2C - Questions fréquentes plomberie chauffage Fréjus',
+        ogImageAlt:  'FAQ Entreprise Exemple - Questions fréquentes plomberie chauffage',
       },
 
       mentionsLegales: {
-        title:       'Mentions Légales – BP2C',
-        description: 'Mentions légales de BP2C - Informations légales sur notre entreprise de plomberie, chauffage et climatisation à Fréjus.',
+        title:       'Mentions Légales – Entreprise Exemple',
+        description: 'Mentions légales de Entreprise Exemple - Informations légales sur notre entreprise de plomberie et chauffage.',
       },
 
       politiqueConf: {
-        title:       'Politique de Confidentialité – BP2C',
-        description: 'Politique de confidentialité et protection des données personnelles de BP2C. Conformité RGPD.',
+        title:       'Politique de Confidentialité – Entreprise Exemple',
+        description: 'Politique de confidentialité et protection des données personnelles de Entreprise Exemple. Conformité RGPD.',
       },
 
       notFound: {
-        title:       'Page introuvable (404) – BP2C',
-        description: "Cette page n'existe pas. Retrouvez nos services de plomberie, chauffage, climatisation et rénovation à Fréjus.",
+        title:       'Page introuvable (404) – Entreprise Exemple',
+        description: "Cette page n'existe pas. Retrouvez nos services de plomberie, chauffage, climatisation et rénovation.",
       },
 
     },

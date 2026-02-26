@@ -1,7 +1,7 @@
 {
-  "name": "bp2c",
+  "name": "artisan-template",
   "version": "1.0.0",
-  "description": "BP2C — Site statique plomberie, chauffage, climatisation, rénovation (Fréjus)",
+  "description": "Template site vitrine statique pour artisan local — plomberie, chauffage, climatisation, rénovation",
   "type": "module",
   "engines": {
     "node": ">=18"

@@ -50,10 +50,9 @@
     },
     "geo": {"@type": "GeoCoordinates", "latitude": "{{contact.geo.latitude}}", "longitude": "{{contact.geo.longitude}}"},
     "areaServed": [
-      {"@type": "City", "name": "Fréjus"},
-      {"@type": "City", "name": "Saint-Raphaël"},
-      {"@type": "City", "name": "Roquebrune-sur-Argens"},
-      {"@type": "AdministrativeArea", "name": "Var"}
+      {"@type": "City", "name": "Ville Exemple"},
+      {"@type": "City", "name": "Commune 1"},
+      {"@type": "City", "name": "Commune 2"}
     ],
     "sameAs": ["{{social.google}}"]
   }
@@ -71,7 +70,7 @@
         L'Artisanat au service de <br><span style="color:#2563eb">votre confort</span>
       </h1>
       <p style="font-size:1.125rem;color:#475569;line-height:1.8;max-width:780px;margin:0 auto">
-        BP2C, c'est l'histoire d'une passion pour le travail bien fait. Basés à Fréjus, nous mettons notre expertise technique au service des particuliers pour créer des habitats sains, confortables et durables.
+        {{company.name}}, c'est l'histoire d'une passion pour le travail bien fait. Nous mettons notre expertise technique au service des particuliers pour créer des habitats sains, confortables et durables.
       </p>
     </div>
   </div>
@@ -100,7 +99,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" style="width:26px;height:26px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
         <h3 style="font-size:1.375rem;font-weight:700;color:#0f172a;margin-bottom:12px">Proximité</h3>
-        <p style="color:#475569;line-height:1.7">Une relation de confiance avec nos clients varois, basée sur l'écoute et le conseil personnalisé.</p>
+        <p style="color:#475569;line-height:1.7">Une relation de confiance avec nos clients, basée sur l'écoute et le conseil personnalisé.</p>
       </div>
     </div>
   </div>
@@ -114,12 +113,12 @@
       <div class="reveal">
         <span style="color:#ea580c;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;font-size:0.75rem;display:block;margin-bottom:12px">Le Fondateur</span>
         <h2 style="font-size:clamp(1.75rem,4vw,3rem);font-weight:800;color:#0f172a;margin-bottom:32px;line-height:1.2">
-          Rencontrez William
+          Rencontrez {{company.founder}}
         </h2>
         <div style="display:flex;flex-direction:column;gap:20px;color:#475569;font-size:1rem;line-height:1.8;margin-bottom:36px">
-          <p>Au cœur de BP2C, il y a William, expert technicien passionné. Avec des années d'expérience sur le terrain, il a fondé BP2C avec une vision simple : redonner ses lettres de noblesse au métier de plombier-chauffagiste.</p>
+          <p>Au cœur de {{company.name}}, il y a {{company.founder}}, expert technicien passionné. Avec des années d'expérience sur le terrain, il a fondé {{company.name}} avec une vision simple : redonner ses lettres de noblesse au métier d'artisan.</p>
           <p>Nos clients le disent mieux que nous : "Très bon contact", "Personne agréable et professionnelle". C'est cette approche humaine, couplée à une haute technicité, qui fait la différence aujourd'hui.</p>
-          <p>Que ce soit pour une installation complexe de climatisation gainable ou un dépannage urgent, William s'implique personnellement pour garantir un résultat irréprochable et votre entière satisfaction.</p>
+          <p>Que ce soit pour une installation complexe ou un dépannage urgent, {{company.founder}} s'implique personnellement pour garantir un résultat irréprochable et votre entière satisfaction.</p>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px">
           <div style="display:flex;align-items:center;gap:12px">
@@ -138,7 +137,7 @@
           </div>
         </div>
         <a href="contact.html" class="btn btn-slate btn-rounded-full" style="padding:16px 36px;font-size:1rem">
-          Discuter avec William
+          Nous contacter
         </a>
       </div>
 
@@ -152,7 +151,7 @@
           </blockquote>
           <div style="display:flex;align-items:center;gap:16px">
             <div style="width:48px;height:4px;background:linear-gradient(to right,#2563eb,#ea580c);border-radius:4px"></div>
-            <p style="font-weight:700;color:#0f172a;text-transform:uppercase;letter-spacing:0.12em;font-size:0.75rem">William, Fondateur</p>
+            <p style="font-weight:700;color:#0f172a;text-transform:uppercase;letter-spacing:0.12em;font-size:0.75rem">{{company.founder}}, Fondateur</p>
           </div>
         </div>
       </div>

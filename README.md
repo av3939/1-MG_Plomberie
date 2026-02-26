@@ -1,4 +1,4 @@
-# BP2C — Template Site Vitrine Artisan Local
+# Artisan Template — Site Vitrine Local
 
 Template statique **SEO-ready** pour artisan (plomberie, chauffage, climatisation, rénovation).
 Architecture HTML/CSS/JS vanilla avec build statique centralisé via `config/site.js`.
@@ -98,12 +98,12 @@ config/site.js
 
 ```js
 company: {
-  name:        'BP2C',                 // Nom affiché partout (header, footer, JSON-LD)
-  legalName:   'BP2C',                 // Raison sociale exacte (mentions légales, JSON-LD)
-  tagline:     "L'excellence de l'habitat", // Sous-titre sous le logo
-  siret:       '93409778300013',       // 14 chiffres, affiché dans mentions légales
-  founder:     'William',             // Prénom fondateur (page à propos)
-  description: 'Expertise…',          // 1-2 phrases pour schema.org
+  name:        'Entreprise Exemple',            // Nom affiché partout (header, footer, JSON-LD)
+  legalName:   'Entreprise Exemple SARL',       // Raison sociale exacte (mentions légales, JSON-LD)
+  tagline:     "Votre artisan de confiance",    // Sous-titre sous le logo
+  siret:       '00000000000000',               // 14 chiffres, affiché dans mentions légales
+  founder:     'Prénom Fondateur',             // Prénom fondateur (page à propos)
+  description: 'Artisan qualifié…',           // 1-2 phrases pour schema.org
 },
 ```
 
@@ -111,26 +111,26 @@ company: {
 
 ```js
 contact: {
-  phone:        '+33601761395',        // Format E.164 — utilisé dans href="tel:..."
-  phoneDisplay: '06 01 76 13 95',      // Format affiché à l'écran
-  email:        'contact@bp2c.net',
+  phone:        '+33XXXXXXXXX',        // Format E.164 — utilisé dans href="tel:..."
+  phoneDisplay: '0X XX XX XX XX',      // Format affiché à l'écran
+  email:        'contact@example.fr',
 
   address: {
-    street:      '160 Rue du Thoron',
-    city:        'Fréjus',
-    postalCode:  '83600',
-    department:  'Var',               // Département (schema.org addressRegion)
-    country:     'FR',                // Code ISO
+    street:      '10 Rue Exemple',
+    city:        'Ville Exemple',
+    postalCode:  '75000',
+    department:  'Département Exemple', // Département (schema.org addressRegion)
+    country:     'FR',                  // Code ISO
     countryName: 'France',
-    // Champs calculés — ne pas modifier manuellement :
-    cityLine:    '83600\u00a0Fréjus',
-    full:        '160 Rue du Thoron, 83600\u00a0Fréjus',
-    fullCountry: '160 Rue du Thoron, 83600\u00a0Fréjus, France',
+    // Champs calculés — mettre à jour manuellement en cohérence avec les champs ci-dessus :
+    cityLine:    '75000\u00a0Ville Exemple',
+    full:        '10 Rue Exemple, 75000\u00a0Ville Exemple',
+    fullCountry: '10 Rue Exemple, 75000\u00a0Ville Exemple, France',
   },
 
   geo: {
-    latitude:  '43.4334',            // Coordonnées GPS pour schema.org GeoCoordinates
-    longitude: '6.7367',
+    latitude:  '48.8566',            // Coordonnées GPS pour schema.org GeoCoordinates
+    longitude: '2.3522',
   },
 },
 ```
@@ -151,8 +151,7 @@ hours: {
 
 ```js
 serviceArea: [
-  'Fréjus', 'Saint-Raphaël', 'Roquebrune-sur-Argens',
-  'Puget-sur-Argens', 'Les Arcs-sur-Argens', 'Var',
+  'Ville Exemple', 'Commune 1', 'Commune 2',
 ],
 ```
 
@@ -205,12 +204,12 @@ Chaque page HTML a son entrée dédiée. Exemple :
 seo: {
   pages: {
     chauffage: {
-      title:       'Chauffage à Fréjus – BP2C | Installation & Entretien',
-      description: 'Expert chauffagiste Fréjus. Installation chaudière…',
-      canonical:   'https://www.bp2c.net/chauffage.html',
+      title:       'Chauffage – Entreprise Exemple | Installation & Entretien',
+      description: 'Expert chauffagiste. Installation chaudière, pompe à chaleur…',
+      canonical:   'https://example.fr/chauffage.html',
       ogImage:     'https://images.unsplash.com/…',
-      ogImageAlt:  'Installation chauffage par BP2C à Fréjus',
-      schemaName:  'BP2C – Chauffage',
+      ogImageAlt:  'Installation chauffage par Entreprise Exemple',
+      schemaName:  'Entreprise Exemple – Chauffage',
       schemaDesc:  'Installation et entretien chaudières… Devis gratuit.',
     },
     // index, plomberie, climatisation, renovation, contact, about, faq,
@@ -244,8 +243,8 @@ Les fichiers HTML sources contiennent des **tokens** `{{clé.sous-clé}}` à la 
 <meta name="description" content="{{seo.pages.chauffage.description}}">
 
 <!-- Après build (dans dist/) -->
-<title>Chauffage à Fréjus – BP2C | Installation &amp; Entretien</title>
-<meta name="description" content="Expert chauffagiste Fréjus…">
+<title>Chauffage – Entreprise Exemple | Installation &amp; Entretien</title>
+<meta name="description" content="Expert chauffagiste. Installation chaudière, pompe à chaleur…">
 ```
 
 ### Notation
@@ -339,7 +338,7 @@ Dans `config/site.js`, rubrique `seo.pages` :
 
 ```js
 chauffage: {
-  title: 'Chauffage à Fréjus – BP2C | Installation & Entretien',
+  title: 'Chauffage – Entreprise Exemple | Installation & Entretien',
   // ...
 },
 ```
@@ -352,7 +351,7 @@ Même emplacement, clé `description` :
 
 ```js
 chauffage: {
-  description: 'Expert chauffagiste Fréjus. Installation chaudière, pompe à chaleur…',
+  description: 'Expert chauffagiste. Installation chaudière, pompe à chaleur, entretien annuel.',
 },
 ```
 
@@ -375,16 +374,16 @@ Les pages `mentions-legales.html`, `politique-confidentialite.html` et `404.html
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "BP2C",
-  "telephone": "+33601761395",
-  "address": { "@type": "PostalAddress", "addressLocality": "Fréjus", … },
-  "geo": { "@type": "GeoCoordinates", "latitude": "43.4334", … },
+  "name": "Entreprise Exemple",
+  "telephone": "+33123456789",
+  "address": { "@type": "PostalAddress", "addressLocality": "Ville Exemple", … },
+  "geo": { "@type": "GeoCoordinates", "latitude": "48.8566", … },
   "areaServed": [
-    { "@type": "City", "name": "Fréjus" },
-    { "@type": "AdministrativeArea", "name": "Var" }
+    { "@type": "City", "name": "Ville Exemple" },
+    { "@type": "AdministrativeArea", "name": "Commune 1" }
   ],
   "openingHours": ["Mo-Fr 08:00-18:00"],
-  "sameAs": ["https://share.google/…"]
+  "sameAs": []
 }
 ```
 
