@@ -417,21 +417,65 @@ body.no-scroll { overflow: hidden; position: fixed; width: 100%; }
 }
 
 /* =========================================
-   HERO MOBILE FIX — uniquement mobile
-========================================= */
+   RESPONSIVE MOBILE — FIXES COMPLETS
+   ========================================= */
 
 @media (max-width: 768px) {
 
-  /* corrige l'espacement avec le header fixed */
-  section[style*="min-height:95vh"] {
-    padding-top: 140px !important;
+  /* 1. HERO — espacement avec le header fixed */
+  section[style*="min-height:95vh"],
+  section[style*="min-height:70vh"] {
+    padding-top: 100px !important;
     padding-bottom: 60px !important;
   }
 
-  /* corrige l'alignement vertical */
-  section[style*="min-height:95vh"] > .container {
+  section[style*="min-height:95vh"] > .container,
+  section[style*="min-height:70vh"] > .container {
     display: flex;
     align-items: flex-start !important;
+  }
+
+  /* 2. SECTIONS — réduction du padding vertical */
+  section[style*="padding:100px 0"] {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+
+  section[style*="padding:60px 0 80px"] {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  /* 3. GRILLES DE CONTENU — réduction du gap */
+  div[style*="gap:72px"] {
+    gap: 32px !important;
+  }
+
+  /* 4. EN-TÊTES DE SECTION — margin-bottom réduit */
+  div[style*="margin-bottom:72px"] {
+    margin-bottom: 36px !important;
+  }
+
+  /* 5. IMAGE PORTRAIT pages services — hauteur réduite */
+  img[style*="height:500px"] {
+    height: 260px !important;
+  }
+
+  /* 6. FORMULAIRE DE CONTACT — card plus compacte */
+  div[style*="border-radius:40px;padding:48px"] {
+    padding: 24px !important;
+    border-radius: 24px !important;
+  }
+
+  /* 7. TRUST BADGES hero index — gap réduit */
+  div[style*="gap:32px;border-top"] {
+    gap: 16px !important;
+  }
+
+  /* 8. CONTAINER horizontal padding */
+  .container[style*="padding:0 24px"] {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 
 }

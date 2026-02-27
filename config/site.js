@@ -16,11 +16,11 @@ window.SITE_CONFIG = {
    * ENTREPRISE
    * ------------------------------------------------------------------ */
   company: {
-    name:        'Entreprise Exemple',                  // Nom affiché partout
-    legalName:   'Entreprise Exemple SARL',             // Raison sociale exacte
+    name:        'MG Plomberie',                  // Nom affiché partout
+    legalName:   'MG Plomberie SARL',             // Raison sociale exacte
     tagline:     "Votre artisan de confiance",          // Sous-titre logo
-    siret:       '00000000000000',
-    founder:     'Prénom Fondateur',
+    siret:       '51098492500048',
+    founder:     'Gregory',
     description: 'Artisan qualifié au service de votre habitat. Plomberie, chauffage, climatisation et rénovation par des professionnels certifiés.',
   },
 
@@ -30,19 +30,19 @@ window.SITE_CONFIG = {
   contact: {
     phone:        '+33123456789',               // Format E.164 (liens tel:)
     phoneDisplay: '01 23 45 67 89',             // Format affiché
-    email:        'contact@example.fr',
+    email:        'messaoudgregory@live.fr',
     address: {
-      street:      '10 Rue Exemple',
-      city:        'Ville Exemple',
+      street:      '',
+      city:        'Paris',
       postalCode:  '75000',
-      department:  'Département Exemple',
+      department:  'Ile de France',
       country:     'FR',
       countryName: 'France',
       // Champs calculés — miroir de hydrateClientTokens dans components.js
       // Utilisés par les tokens de build {{contact.address.*}} ET le runtime JS.
-      cityLine:    '75000\u00a0Ville Exemple',
-      full:        '10 Rue Exemple, 75000\u00a0Ville Exemple',
-      fullCountry: '10 Rue Exemple, 75000\u00a0Ville Exemple, France',
+      cityLine:    '75000\u00a0Paris',
+      full:        '75000\u00a0Paris',
+      fullCountry: '75000\u00a0Paris, France',
     },
     geo: {
       latitude:  '48.8566',
@@ -80,7 +80,7 @@ window.SITE_CONFIG = {
    * ASSETS
    * ------------------------------------------------------------------ */
   assets: {
-    logo:           '/assets/images/logo.jpg',
+    logo:           '/assets/images/logo.png',
     favicon:        '/favicon.ico',
     ogImageDefault: 'https://images.unsplash.com/photo-1676210134188-4c05dd172f89?auto=format&fit=crop&w=1200&q=80',
     ogImageWidth:   '1200',
