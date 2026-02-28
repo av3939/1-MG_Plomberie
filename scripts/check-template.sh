@@ -178,7 +178,7 @@ fi
 bold ""
 bold "▶ 6. Title + meta description"
 
-INDEXABLE_PAGES=("index.html" "plomberie.html" "chauffage.html" "climatisation.html" "renovation.html" "about.html" "contact.html" "faq.html")
+INDEXABLE_PAGES=("index.html" "plomberie.html" "chauffage.html" "recherche-de-fuite.html" "renovation.html" "about.html" "contact.html" "faq.html")
 
 for page in "${INDEXABLE_PAGES[@]}"; do
   f="$ROOT/$page"

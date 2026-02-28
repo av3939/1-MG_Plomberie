@@ -210,7 +210,7 @@ const PAGE_META = {
   'index.html':                    { priority: '1.0', changefreq: 'monthly' },
   'plomberie.html':                { priority: '0.9', changefreq: 'monthly' },
   'chauffage.html':                { priority: '0.9', changefreq: 'monthly' },
-  'climatisation.html':            { priority: '0.9', changefreq: 'monthly' },
+  'recherche-de-fuite.html':       { priority: '0.9', changefreq: 'monthly' },
   'renovation.html':               { priority: '0.9', changefreq: 'monthly' },
   'contact.html':                  { priority: '0.8', changefreq: 'yearly'  },
   'faq.html':                      { priority: '0.7', changefreq: 'monthly' },

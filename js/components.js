@@ -80,10 +80,10 @@ const ICONS = {
 // ============================================================
 const navLinks = [
   { path: '/', label: 'Accueil', file: 'index.html' },
-  { path: '/plomberie', label: 'Plomberie', file: 'plomberie.html' },
+  { path: '/plomberie', label: "Urgence Plomberie", file: 'plomberie.html' },
   { path: '/chauffage', label: 'Chauffage', file: 'chauffage.html' },
+  { path: '/recherche-de-fuite', label: 'Recherche de Fuite', file: 'recherche-de-fuite.html' },
   { path: '/renovation', label: 'Rénovation', file: 'renovation.html' },
-  { path: '/climatisation', label: 'Galerie', file: 'climatisation.html' },
   { path: '/about', label: 'À propos', file: 'about.html' },
   { path: '/contact', label: 'Contact', file: 'contact.html' },
 ];
@@ -115,7 +115,7 @@ function renderHeader() {
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="nav-pill hide-mobile-menu" style="display:flex;align-items:center">
+      <nav class="nav-pill hide-mobile-menu" style="display:flex;align-items:center;gap:4px">
         ${desktopNavHTML}
       </nav>
 
@@ -209,7 +209,7 @@ function renderFooter() {
           <span style="position:absolute;bottom:-2px;left:0;width:48px;height:4px;background:#2563eb;border-radius:4px"></span>
         </h3>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:14px">
-          ${[["Plomberie d'urgence",'plomberie.html'],['Chauffage & Chaudières','chauffage.html'],['Rénovation Salle de Bain','renovation.html'],['Galerie','climatisation.html'],['Recherche de fuite','plomberie.html'],['Entretien annuel','chauffage.html']].map(([n,f]) => `
+          ${[["Plomberie d'urgence",'plomberie.html'],['Chauffage & Chaudières','chauffage.html'],['Recherche de fuite','recherche-de-fuite.html'],['Rénovation Salle de Bain','renovation.html']].map(([n,f]) => `
             <li><a href="${f}" style="color:#64748b;text-decoration:none;font-size:0.9rem;transition:color 0.2s;display:flex;align-items:center;gap:8px"
               onmouseover="this.style.color='white'" onmouseout="this.style.color='#64748b'">
               <span style="width:6px;height:6px;border-radius:50%;background:#2563eb;flex-shrink:0;opacity:0;transition:opacity 0.2s" class="footer-dot"></span>

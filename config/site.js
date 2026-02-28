@@ -176,6 +176,16 @@ window.SITE_CONFIG = {
         schemaDesc:  'Installation climatisation gainable et split. Spécialiste réversible toutes saisons.',
       },
 
+      rechercheFuite: {
+        title:       'Recherche de Fuite – Entreprise Exemple | Sans Destruction',
+        description: 'Détection de fuite professionnelle sans casse. Écoute acoustique, caméra thermique, gaz traceur. Localisation précise garantie, rapport pour assurance.',
+        canonical:   'https://example.fr/recherche-de-fuite.html',
+        ogImage:     'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1200&q=80',
+        ogImageAlt:  'Technicien recherche de fuite Entreprise Exemple',
+        schemaName:  'Entreprise Exemple \u2013 Recherche de Fuite',
+        schemaDesc:  'Recherche de fuite non destructive. Écoute acoustique, thermique et gaz traceur. Localisation ±5 cm, rapport assurance.',
+      },
+
       renovation: {
         title:       'Rénovation Salle de Bain – Entreprise Exemple',
         description: 'Rénovation complète de salle de bain. Douche italienne, carrelage, plomberie. Un interlocuteur unique pour votre projet.',
