@@ -30,7 +30,7 @@ window.SITE_CONFIG = {
   contact: {
     phone:        '+33123456789',               // Format E.164 (liens tel:)
     phoneDisplay: '01 23 45 67 89',             // Format affiché
-    email:        'messaoudgregory@live.fr',
+    email:        'av_39@hotmail.com',
     address: {
       street:      '',
       city:        'Paris',

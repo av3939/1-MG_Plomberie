@@ -79,13 +79,13 @@ const ICONS = {
 // HEADER HTML
 // ============================================================
 const navLinks = [
-  { path: '/', label: 'Accueil', file: 'index.html' },
-  { path: '/plomberie', label: "Urgence Plomberie", file: 'plomberie.html' },
-  { path: '/chauffage', label: 'Chauffage', file: 'chauffage.html' },
-  { path: '/recherche-de-fuite', label: 'Recherche de Fuite', file: 'recherche-de-fuite.html' },
-  { path: '/renovation', label: 'Rénovation', file: 'renovation.html' },
-  { path: '/about', label: 'À propos', file: 'about.html' },
-  { path: '/contact', label: 'Contact', file: 'contact.html' },
+  { path: '/',                  label: 'Accueil',           file: 'index.html',             color: '#2563eb', colorDark: '#1d4ed8' },
+  { path: '/plomberie',         label: "Urgence Plomberie", file: 'plomberie.html',          color: '#2563eb', colorDark: '#1d4ed8' },
+  { path: '/chauffage',         label: 'Chauffage',         file: 'chauffage.html',          color: '#ea580c', colorDark: '#c2410c' },
+  { path: '/recherche-de-fuite',label: 'Recherche de Fuite',file: 'recherche-de-fuite.html', color: '#0891b2', colorDark: '#0e7490' },
+  { path: '/renovation',        label: 'Rénovation',        file: 'renovation.html',         color: '#7c3aed', colorDark: '#6d28d9' },
+  { path: '/about',             label: 'À propos',          file: 'about.html',              color: '#2563eb', colorDark: '#1d4ed8' },
+  { path: '/contact',           label: 'Contact',           file: 'contact.html',            color: '#2563eb', colorDark: '#1d4ed8' },
 ];
 
 function renderHeader() {
@@ -350,11 +350,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // ACTIVE NAV LINK
   // ============================================================
   const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+  const navColorMap = Object.fromEntries(navLinks.map(l => [l.path, l]));
+  function hexToRgba(hex, alpha) {
+    const r = parseInt(hex.slice(1,3), 16);
+    const g = parseInt(hex.slice(3,5), 16);
+    const b = parseInt(hex.slice(5,7), 16);
+    return `rgba(${r},${g},${b},${alpha})`;
+  }
   document.querySelectorAll('[data-nav-path]').forEach(link => {
     const path = link.getAttribute('data-nav-path');
     const isActive = (path === '/' && (currentPath === '/' || currentPath === '/index.html'))
-      || (path !== '/' && currentPath.endsWith(path));
-    if (isActive) link.classList.add('active');
+      || (path !== '/' && (currentPath.endsWith(path) || currentPath.endsWith(path + '.html')));
+    if (!isActive) return;
+    link.classList.add('active');
+    const nl = navColorMap[path];
+    if (!nl) return;
+    if (link.classList.contains('nav-link')) {
+      link.style.background = `linear-gradient(to right, ${nl.color}, ${nl.colorDark})`;
+      link.style.color = 'white';
+      link.style.boxShadow = `0 4px 12px ${hexToRgba(nl.color, 0.3)}`;
+    } else if (link.classList.contains('mobile-nav-link')) {
+      link.style.color = nl.color;
+      link.style.background = hexToRgba(nl.color, 0.08);
+      link.style.borderColor = hexToRgba(nl.color, 0.25);
+    }
   });
 
   // ============================================================
