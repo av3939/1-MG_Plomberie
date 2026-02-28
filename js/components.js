@@ -176,9 +176,10 @@ function renderFooter() {
     <div class="footer-grid">
       <!-- Brand col -->
       <div class="footer-brand" style="max-width:340px">
-        <a href="index.html">
+        <a href="index.html" style="display:flex;align-items:center;gap:14px;text-decoration:none;margin-bottom:20px">
           <img src="${C.assets.logo}"
-            alt="${C.company.name}" style="height:56px;width:auto;filter:brightness(0) invert(1);opacity:0.9;margin-bottom:20px;display:block">
+            alt="${C.company.name}" style="height:56px;width:auto;filter:brightness(0) invert(1);opacity:0.9;display:block">
+          <span style="font-size:1.375rem;font-weight:800;color:white;line-height:1;letter-spacing:-0.02em">${C.company.name}</span>
         </a>
         <p style="color:#64748b;line-height:1.7;font-size:0.9rem;margin-bottom:24px">
           ${C.company.description}
@@ -210,11 +211,8 @@ function renderFooter() {
         </h3>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:14px">
           ${[["Plomberie d'urgence",'plomberie.html'],['Chauffage & Chaudières','chauffage.html'],['Recherche de fuite','recherche-de-fuite.html'],['Rénovation Salle de Bain','renovation.html']].map(([n,f]) => `
-            <li><a href="${f}" style="color:#64748b;text-decoration:none;font-size:0.9rem;transition:color 0.2s;display:flex;align-items:center;gap:8px"
-              onmouseover="this.style.color='white'" onmouseout="this.style.color='#64748b'">
-              <span style="width:6px;height:6px;border-radius:50%;background:#2563eb;flex-shrink:0;opacity:0;transition:opacity 0.2s" class="footer-dot"></span>
-              ${n}
-            </a></li>
+            <li><a href="${f}" style="color:#64748b;text-decoration:none;font-size:0.9rem;transition:color 0.2s"
+              onmouseover="this.style.color='white'" onmouseout="this.style.color='#64748b'">${n}</a></li>
           `).join('')}
         </ul>
       </div>
